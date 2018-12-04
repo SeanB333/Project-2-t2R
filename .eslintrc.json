@@ -39,7 +39,7 @@
             "unix"
         ],
         "quotes": [
-            "error",
+            "off",
             "double",
             {
                 "allowTemplateLiterals": true
