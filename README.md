@@ -11,6 +11,7 @@ App to alert patients about daily pain medications routine and to track pain int
 ## Dependencies - Front-End<h2>
 * Materialize
 * JQuery Modals
+* React
 
 ## Dependencies - Back-End<h2>
 * Express
@@ -20,6 +21,7 @@ App to alert patients about daily pain medications routine and to track pain int
 * JawsDB MySQL
 * plotly
 * NHI API
+* twilio
 
 
 
