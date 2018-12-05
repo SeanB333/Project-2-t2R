@@ -2,29 +2,46 @@
   "name": "project-2-t2r",
   "version": "1.0.0",
   "description": "Project 2 Starter",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node app.js",
     "lint": "eslint **/*.js --quiet",
     "fix": "eslint --fix .",
     "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-generator": "^4.16.0",
     "express-handlebars": "^3.0.0",
+    "morgan": "^1.9.1",
     "mysql2": "^1.5.3",
-    "sequelize": "^4.38.0"
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "^5.4.0",
+    "twilio": "^3.25.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-prettier": "^3.0.0",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeanB333/Project-2-t2R.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/SeanB333/Project-2-t2R/issues"
+  },
+  "homepage": "https://github.com/SeanB333/Project-2-t2R#readme"
 }

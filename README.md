@@ -2,7 +2,14 @@
 
 # <span style="color:red"> **Meds Per Hour** </span>
 
+<<<<<<< HEAD
+## Dependencies - Front-End<h2>
+* Materialize
+* JQuery Modals
+* React
+=======
 ### Project 2 - UT Coding Bootcamp Houston 2018-2019
+>>>>>>> a7a8c566c544518eb990a17fe2b0c41dc4e3a05d
 
 
 ## Overview
@@ -56,7 +63,13 @@ App to alert patients about daily pain medications routine, track pain intensity
 * Heroku
 * Sequelize
 * JawsDB MySQL
+<<<<<<< HEAD
+* plotly
+* NHI API
+* twilio
+=======
 
+>>>>>>> a7a8c566c544518eb990a17fe2b0c41dc4e3a05d
 
 
 
