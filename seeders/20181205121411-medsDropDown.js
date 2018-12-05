@@ -2,7 +2,7 @@
 
 module.exports = {
     up: function(queryInterface) {
-        return queryInterface.bulkInsert("Hamburgers", [
+        return queryInterface.bulkInsert("Medications", [
             { medsName: "Codeine" },
             { medsName: "Fentanyl" },
             { medsName: "Hydrocodone" },
