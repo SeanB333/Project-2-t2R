@@ -2,14 +2,9 @@
 
 # <span style="color:red"> **Meds Per Hour** </span>
 
-<<<<<<< HEAD
-## Dependencies - Front-End<h2>
-* Materialize
-* JQuery Modals
-* React
-=======
+
 ### Project 2 - UT Coding Bootcamp Houston 2018-2019
->>>>>>> a7a8c566c544518eb990a17fe2b0c41dc4e3a05d
+
 
 
 ## Overview
@@ -24,7 +19,7 @@ App to alert patients about daily pain medications routine, track pain intensity
 </center>
 
 
-> ## Functionality
+>>>>>> ## Functionality
 
 * Alarm patients about daily medications routine
 * Display name general information about medication (use, last intake)
@@ -35,7 +30,7 @@ App to alert patients about daily pain medications routine, track pain intensity
 <img src="https://www.wired.com/images_blogs/wiredscience/2013/12/online_graphing_libraries_packages_for_python_r_matlab_julia_arduino_perl_and_rest_documentation_and_examples_plotly_3.jpg" height="100px">
 </center>
 
-> ## MPV goals
+>>>>>> ## MPV goals
 
 * MySQL2 database that interacts with doctors and patients
 * Use **Sequelize** to build data and relationships
@@ -44,7 +39,7 @@ App to alert patients about daily pain medications routine, track pain intensity
 * Display the information sent from the patients in different graph formats
   
 
-> ## Stretch Goals
+>>>>>> ## Stretch Goals
 
 * Bring chat functionality to the app that allows the patients to interact directly with thier doctor or medical staff
 * Host the database on a Rasberry Pi
@@ -63,13 +58,5 @@ App to alert patients about daily pain medications routine, track pain intensity
 * Heroku
 * Sequelize
 * JawsDB MySQL
-<<<<<<< HEAD
-* plotly
-* NHI API
-* twilio
-=======
-
->>>>>>> a7a8c566c544518eb990a17fe2b0c41dc4e3a05d
-
 
 
