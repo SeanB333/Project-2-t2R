@@ -10,13 +10,18 @@ module.exports = function(sequelize, DataTypes) {
         dosage: {
             type: DataTypes.INTEGER(2).ZEROFILL.UNSIGNED,
             allowNull: false
+        },
+        intakeCheck: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+            allowNull: false
         }
     });
     Prescriptions.associate = function(models) {
-        Prescriptions.hasMany(
-            models.Medications,
-            { as: "medications" },
-            { foreignKey: { name: "medicationsId" } }
+        Prescriptions.belongsTo(
+            models.Patients,
+            { as: "patients" },
+            { foreignKey: { name: "patientsId" } }
         );
     };
     return Prescriptions;

@@ -28,7 +28,7 @@ fs.readdirSync(__dirname)
             file.slice(-3) === ".js"
         );
     })
-    .forEach(function(file){
+    .forEach(file => {
         const model = sequelize.import(path.join(__dirname, file));
         db[model.name] = model;
     });
