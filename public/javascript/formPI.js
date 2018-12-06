@@ -1,5 +1,6 @@
 $(function() {
     $("#submit").on("click", function(event) {
+        console.log("test");
         event.preventDefault();
         let objPatient = {
             firstName: $("#firstName")
@@ -40,5 +41,7 @@ $(function() {
         $("#gender").val("");
         $("#race").val("");
         $("#ethnicity").val("");
+
+        window.location = "http://localhost:8080/users/medications";
     });
 });
