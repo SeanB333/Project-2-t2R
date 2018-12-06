@@ -4,7 +4,11 @@ const db = require("../models");
 
 /* GET home page. */
 router.get("/", function(req, res) {
-    res.render("index", { title: "We now Have a working front-end template" });
+    res.render("index", { title: "MedsPerHour" });
+});
+/* GET home page. */
+router.get("/users", function(req, res) {
+    res.render("formsPI", { date: Date.now() });
 });
 
 //HEALTH PRACTITIONERS ROUTES
@@ -15,7 +19,7 @@ router.get("/api/medications", function(req, res) {
     });
 });
 //create new patient or update records of exsting patient
-router.post("/api/patients", (req, res) => {
+router.post("/users", (req, res) => {
     db.Patients.findOrCreate({ where: { phone: req.body.phoneNumber } }).spread(
         async function(patients, created) {
             const objPatient = await patients.get({

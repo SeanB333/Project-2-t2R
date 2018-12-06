@@ -1,0 +1,57 @@
+<div class="jumbotron container">
+<div class='py-9'>
+    <h1 class="text-center my-5">MedsPerHour</h1>
+    <h1 class="text-center my-5">{{Date}}</h1>
+</div>
+    <div class="form-group row">
+        <label for="firstName" class="col-2 col-form-label">First Name</label>
+        <div class="col-10">
+            <input class="form-control" type="text" placeholder="Enter name" id="firstName">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="lastName" class="col-2 col-form-label">Last Name</label>
+        <div class="col-10">
+            <input class="form-control" type="text" placeholder="Enter last name" id="lastName">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="dob" class="col-2 col-form-label">Date of Birth</label>
+        <div class="col-10">
+            <input class="form-control" type="date" placeholder="Enter in the following format -2011-08-19" id="dob">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="phoneNumber" class="col-2 col-form-label">Telephone</label>
+        <div class="col-10">
+            <input class="form-control" type="tel" placeholder="Please enter in the following format -+12815555555" id="phoneNumber">
+        </div>
+        <div class="form-group">
+            <label for="gender">Example select</label>
+            <select class="form-control" id="gender">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="race">Race</label>
+            <select class="form-control" id="race">
+                <option>American Indian or Alaskan Native</option>
+                <option>Asian</option>
+                <option>Black or African American</option>
+                <option>Native Hawaiian</option>
+                <option>White</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="ethnicity">Ethnicity</label>
+            <select class="form-control" id="ethnicity">
+                <option>Hispanic</option>
+                <option>Non-hispanic</option>
+            </select>
+        </div>
+
+        <input class="btn btn-primary" id="submit" type="submit" value="Submit">
+    </div>
