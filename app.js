@@ -38,4 +38,11 @@ app.use(function(err, req, res) {
     res.render("error");
 });
 
+const db = require("./models");
+const PORT = process.env.PORT || 8080;
+db.sequelize.sync({}).then(function() {
+    app.listen(PORT, () => {
+        console.log(`Server listening on http://localhost:${PORT}`);
+    });
+});
 module.exports = app;
