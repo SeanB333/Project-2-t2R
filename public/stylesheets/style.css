@@ -1,13 +1,10 @@
 body {
-  font: 32px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px;
+  font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(../images/xtract.jpg);
+  background-size: cover;
 }
 
 a {
-  color: rgb(93, 207, 252);
-  text-shadow: 2px 2px 4px #000000;
-  margin-left:15%;
-}
-
-img {
-  margin-left:38%
+  color: rgb(255, 255, 255);
 }
