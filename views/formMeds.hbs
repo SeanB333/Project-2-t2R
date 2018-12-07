@@ -1,0 +1,33 @@
+<div class='py-9'>
+    <h1 class="text-center my-5">Medications Form</h1>
+</div>
+
+<div class='row align-items-center justify-content-center'>
+    <form class="create-form" width=352>
+            <div class="form-group" style="width: 352px;">
+
+                <select class="form-control combo" id="medsName" name="medsName" placeholder="Medication Name" class='rounded'>
+                     <option>Select Option</option>
+                    {{#each medications}} {{> medOptions this medsName=medsName id=id}} {{/each}}
+                </select>
+                <label for="dosage"></label>
+                <input type="text" id="dosage" name="dosage" placeholder='Enter dosage' class='rounded'>
+            </div>
+             <select class="form-control combo" id="medsName2" name="medsName" placeholder="Medication Name" class='rounded'>
+                     <option>Select Option</option>
+                    {{#each medications}} {{> medOptions this medsName=medsName id=id}} {{/each}}
+                </select>
+                <label for="dosage"></label>
+                <input type="text" id="dosage" name="dosage2" placeholder='Enter dosage' class='rounded'>
+            </div>
+             <select class="form-control combo" id="medsName3" name="medsName" placeholder="Medication Name" class='rounded'>
+                     <option>Select Option</option>
+                    {{#each medications}} {{> medOptions this medsName=medsName id=id}} {{/each}}
+                </select>
+                <label for="dosage"></label>
+                <input type="text" id="dosage" name="dosage3" placeholder='Enter dosage' class='rounded'>
+            </div>
+
+        <button type="submit" class="btn btn-success submitButton" href="#modalPopUp" rel="modal:open">Get Burger</button>
+    </form>
+</div> 
