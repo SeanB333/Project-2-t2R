@@ -32,7 +32,7 @@ router.post("/users", (req, res) => {
                 },
                 { where: { id: objPatient.id } }
             ).then(function(results) {
-                res.resder("form", { form: results });
+                res.resder("formsPI", { form: results });
             });
         } else {
             db.Patients.create({
@@ -44,7 +44,7 @@ router.post("/users", (req, res) => {
                 phoneNumber: req.body.phoneNumber,
                 ethnicity: req.body.ethnicity
             }).then(function(results) {
-                res.resder("form", { form: results });
+                res.resder("formsPI", { form: results });
             });
         }
     });
@@ -53,27 +53,34 @@ router.post("/users", (req, res) => {
 /* medications menu */
 router.get("/users/medications", function(req, res) {
     db.Medications.findAll({}).then(function(results) {
-        res.render("index", { medications: results });
+        res.render("formMeds", { medications: results });
     });
 });
 
 //form to insert medications and daily intake
-router.post("/users/medications", (req, res) => {
-    db.Medications.create(
-        { medsName: req.body.medsName, dosage: req.body.dosage },
-        { where: { id: req.body.id } },
-        {
-            include: [
-                {
-                    model: db.Patients,
-                    as: "patients"
-                }
-            ]
-        }
-    ).then(function(results) {
-        res.json(results);
-        //res.redirect('/');
-    });
-});
+// router.post("/users/medications", (req, res) => {
+//     db.Medications.create(
+//         {
+//             medsName: req.body.medsName,
+//             dosage: req.body.dosage,
+//             medsName: req.body.medsName2,
+//             dosage: req.body.dosage2,
+//             medsName: req.body.medsName3,
+//             dosage: req.body.dosage3
+//         },
+//         { where: { id: req.body.id } },
+//         {
+//             include: [
+//                 {
+//                     model: db.Patients,
+//                     as: "patients"
+//                 }
+//             ]
+//         }
+//     ).then(function(results) {
+//         res.json(results);
+//         //res.redirect('/');
+//     });
+// });
 
 module.exports = router;
