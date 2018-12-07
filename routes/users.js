@@ -1,9 +1,10 @@
 let express = require("express");
 let router = express.Router();
+//let db  = require("../models");
 
-/* GET users listing. */
+/* GET home page. */
 router.get("/", function(req, res) {
-    res.send("respond with a resource");
+    res.render("index", { title: "MedsPerHour" });
 });
 
 module.exports = router;
