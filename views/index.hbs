@@ -1,2 +1,21 @@
-<h1><a>{{title}}</a></h1>
-<p><a>Coming Soon</a></p>
+<div class="flexbox">
+  <div class="search">
+    <div>
+      <input type="text" placeholder="       Search . . ." required>
+    </div>
+  </div>
+</div>
+
+<!-- Modal HTML embedded directly into document -->
+<div id="ex1" class="modal">
+  <p>Thanks for clicking. That felt good.</p>
+  <a href="#" rel="modal:close">Close</a>
+</div>
+
+<!-- Link to open the modal -->
+<button class="button">
+  <p><a href="#ex1" rel="modal:open">Upload code</a></p>  
+</button>
+
+
+
