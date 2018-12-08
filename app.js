@@ -30,6 +30,7 @@ app.use(function(req, res, next) {
 let hbs = require("hbs");
 hbs.registerPartials(__dirname + "views/partials");
 // error handler
+
 app.use(function(err, req, res) {
     // set locals, only providing error in development
     res.locals.message = err.message;
@@ -38,6 +39,14 @@ app.use(function(err, req, res) {
     // render the error page
     res.status(err.status || 500);
     res.render("error");
+});
+
+const db = require("./models");
+const PORT = process.env.PORT || 8080;
+db.sequelize.sync({}).then(function() {
+    app.listen(PORT, () => {
+        console.log(`Server listening on http://localhost:${PORT}`);
+    });
 });
 
 module.exports = app;

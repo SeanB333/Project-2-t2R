@@ -15,11 +15,11 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     Users.associate = function(models) {
-        Patients.hasMany(
+        Users.hasMany(
             models.Codes,
             { as: "codes" },
             { foreignKey: { name: "codesId" } }
         );
     };
-    return User;
+    return Users;
 };
