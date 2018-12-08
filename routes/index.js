@@ -6,6 +6,7 @@ const db = require("../models");
 router.get("/", function(req, res) {
     res.render("index", { title: "EXTRACT" });
 });
+
 /*create keywords record*/
 router.get("/keywords", function(req, res) {
     db.Codes.create({ keywords: req.body.keywords }).then(function(results) {
