@@ -14,12 +14,12 @@ module.exports = function(sequelize, DataTypes) {
             notNull: true
         }
     });
-    User.associate = function(models) {
-        User.hasMany(
+    Users.associate = function(models) {
+        Users.hasMany(
             models.Codes,
             { as: "codes" },
             { foreignKey: { name: "codesId" } }
         );
     };
-    return User;
+    return Users;
 };

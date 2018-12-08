@@ -4,7 +4,7 @@ const db = require("../models");
 
 /* GET home page. */
 router.get("/", function(req, res) {
-    res.render("index", { title: "EXTRACT" });
+    res.render("index", { title: "Extract" });
 });
 
 /*create keywords record*/
