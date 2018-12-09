@@ -9,6 +9,8 @@ router.get("/", function(req, res) {
 
 /*obtain info from user and create a new record in table*/
 router.post("/api/code", function(req, res) {
+    db.Users.findOrCreate({});
+
     db.Codes.create(
         {
             keywords: req.body.keywords,
@@ -25,10 +27,11 @@ router.post("/api/code", function(req, res) {
 
 //look for keywords to be displayed in front end
 router.get("/api/keywords", function(req, res) {
-    de.Codes.findAll({}, { where: { keywords: req.body.keywords } }).then(
+    db.Codes.findAll({}, { where: { keywords: req.body.keywords } }).then(
         function(keywords) {
             let objKeywords = keywords[0].dataValues.keywords;
-            res.render("index", objKeywords);
+            res.json(objKeywords);
+            //res.render("display", { search: objKeywords });
         }
     );
 });
