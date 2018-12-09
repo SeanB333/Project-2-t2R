@@ -32,5 +32,4 @@ router.get("/api/keywords", function(req, res) {
         }
     );
 });
-
 module.exports = router;
