@@ -7,11 +7,28 @@ router.get("/", function(req, res) {
     res.render("index", { title: "Extract" });
 });
 
-/*create keywords record*/
-router.get("/keywords", function(req, res) {
-    db.Codes.create({ keywords: req.body.keywords }).then(function(results) {
+/*obtain info from user and create a new record in table*/
+router.post("/api/code", function(req, res) {
+    db.Codes.create(
+        {
+            keywords: req.body.keywords,
+            description: req.body.codeDescription,
+            price: req.body.price,
+            codesnip: req.body.codesnip
+        },
+        { where: { username: req.body.username } },
+        { include: [{ model: db.Users, as: "users" }] }
+    ).then(function(results) {
         res.json(results);
     });
 });
 
-module.exports = router;
+//look for keywords to be displayed in front end
+router.get("/api/keywords", function(req, res) {
+    de.Codes.findAll({}, { where: { keywords: req.body.keywords } }).then(
+        function(keywords) {
+            let objKeywords = keywords[0].dataValues.keywords;
+            res.render("index", objKeywords);
+        }
+    );
+});
