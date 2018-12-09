@@ -13,7 +13,7 @@ const http = require("http");
  */
 
 const port = normalizePort(process.env.PORT || "3000");
-const PORT = normalizePort(process.env.PORT || "8080");
+const PORT = normalizePort(process.env.PORT || "8000");
 app.set("port", port);
 
 /**
@@ -90,9 +90,5 @@ function onListening() {
     debug("Listening on " + bind);
 
     
-db.sequelize.sync({}).then(function() {
-    app.listen(PORT, () => {
-        console.log(`Server listening on http://localhost:${PORT}`);
-    });
-});
+
 }

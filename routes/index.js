@@ -13,6 +13,7 @@ router.post("/api/code", function(req, res) {
         {
             keywords: req.body.keywords,
             description: req.body.codeDescription,
+            language: req.body.language,
             price: req.body.price,
             codesnip: req.body.codesnip
         },
@@ -32,3 +33,4 @@ router.get("/api/keywords", function(req, res) {
         }
     );
 });
+module.exports = router;
