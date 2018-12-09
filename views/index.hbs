@@ -1,21 +1,68 @@
-<div class="flexbox">
-  <div class="search">
-    <div>
-      <input type="text" placeholder="       Search . . ." required>
+{{!-- search bar and button --}}
+<form class="form-inline m-5">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+</form>
+
+{{!-- modal button --}}
+<div class="row justify-content-center">
+    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Upload
+        Code</button>
+</div>
+
+{{!-- modal body --}}
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add your code here</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="username" class="col-form-label">User Name</label>
+                        <input type="text" class="form-control" id="user-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-form-label">E-mail</label>
+                        <input type="text" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-form-label">Description</label>
+                        <input type="text" class="form-control" id="description">
+                    </div>
+                    <div class="form-group">
+                        <label for="language" class="col-form-label">Language</label>
+                        <select class="custom-select custom-select-lg mb-3">
+                            <option selected>Open this select menu</option>
+                            <option value="html">Html</option>
+                            <option value="css">CSS</option>
+                            <option value="javascript">Javascript</option>
+                            <option value="json">JSON</option>
+                            <option value="sql">SQL</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="keywords" class="col-form-label">Keywords</label>
+                        <input type="text" class="form-control" id="keywords">
+                    </div>
+                    <div class="form-group">
+                        <label for="price" class="col-form-label">Price</label>
+                        <input type="text" class="form-control" id="price">
+                    </div>
+                    <div class="form-group">
+                        <label for="codesnip" class="col-form-label">Code</label>
+                        <textarea class="form-control" id="code-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="upload" class="btn btn-primary">Upload code</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
-
-<!-- Modal HTML embedded directly into document -->
-<div id="ex1" class="modal">
-  <p>Thanks for clicking. That felt good.</p>
-  <a href="#" rel="modal:close">Close</a>
-</div>
-
-<!-- Link to open the modal -->
-<button class="button">
-  <p><a href="#ex1" rel="modal:open">Upload code</a></p>  
-</button>
-
-
-
