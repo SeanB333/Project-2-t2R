@@ -1,10 +1,14 @@
 body {
-  background-image: url(../images/xtract.jpg);
+  background-image: url(../images/xtract2.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .modal-content {
   background-color: black;
+  background-image: url(../images/xtcover.png);
+  
   color: blue;
   border-style: solid;
   border-color: blue;
