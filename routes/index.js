@@ -7,6 +7,9 @@ router.get("/", function(req, res) {
     res.render("index", { title: "Extract" });
 });
 
+router.get("/keywords", function(req, res) {
+    res.render("codearea", { title: "Search Deivery" });
+});
 /*obtain info from user and create a new record in table*/
 router.post("/api/code", function(req, res) {
     db.Users.findOrCreate({ where: { username: req.body.username } })
@@ -29,7 +32,7 @@ router.post("/api/code", function(req, res) {
                 {
                     keywords: req.body.keywords,
                     description: req.body.codeDescription,
-                    language: req.body.language,
+                    languages: req.body.languages,
                     price: req.body.price,
                     codesnip: req.body.codesnip,
                     usersId: objUser.id
@@ -43,13 +46,11 @@ router.post("/api/code", function(req, res) {
 });
 
 //look for keywords to be displayed in front end
-router.get("/api/keywords", function(req, res) {
-    db.Codes.findAll({}, { where: { keywords: req.body.keywords } }).then(
-        function(keywords) {
-            console.log(objKeywords);
-            let objKeywords = keywords[0].dataValues.keywords;
-            res.json(objKeywords);
-            //res.render("display", { search: objKeywords });
+router.get("/api/keywords/:keywords", function(req, res) {
+    console.log(req.params);
+    db.Codes.findAll({}, { where: { keywords: req.params.keywords } }).then(
+        function(results) {
+            res.render("codearea", { data: results });
         }
     );
 });
