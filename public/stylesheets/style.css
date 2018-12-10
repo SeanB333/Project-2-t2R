@@ -3,6 +3,15 @@ body {
   background-size: cover;
 }
 
-a {
-  color: rgb(255, 255, 255);
+.modal-content {
+  background-color: black;
+  color: blue;
+  border-style: solid;
+  border-color: blue;
+  border-radius: 3px;
 }
+
+.form-control {
+  background-color: black;
+  color: blue;
+  }
