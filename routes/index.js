@@ -20,15 +20,6 @@ router.post("/api/code", function(req, res) {
         }
     );
 
-    // router.post("/api/users/", (req, res) => {
-    //     db.Users.findOrCreate({
-    //         where: { username: req.body.username }
-    //     }).spread(async function(users, created) {
-    //         const objUser = await patients.get({
-    //             plain: true
-    //         });
-    //     });
-
     db.Codes.create(
         {
             keywords: req.body.keywords,
