@@ -1,7 +1,7 @@
 // window.onload = function () {
 //     // your page initialization code here
 //     // the DOM will be available here
-//     let myTextArea = document.getElementById("code-box");
+//     let myTextArea = document.getElementById("codesnip");
 
 //     console.log(myTextArea);
 
