@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    $("#upload").on("click", function (event) {
+$(document).ready(function() {
+    $("#upload").on("click", function(event) {
         event.preventDefault();
         console.log("submitCode function ran");
         const data = {
@@ -42,30 +42,33 @@ $(document).ready(function () {
     });
 
     //when user changes #laguage dropdown value, update codemirror
-    $("#language").change(function () {
+    $("#language").change(function() {
         console.log("language changed: ", $("#language").val());
         let lang = $("#language").val();
-        if(lang === "html") {
+        if (lang === "html") {
             lang = "htmlmixed";
         }
-        if(lang === "json") {
-            lang = "javascript"
+        if (lang === "json") {
+            lang = "javascript";
         }
 
         myCodeMirror.setOption("mode", lang);
-    })
+    });
 
     //code mirror initialize
     let myTextArea = document.getElementById("codesnip");
 
     console.log(myTextArea);
 
-    let myCodeMirror = CodeMirror(function (elt) {
-        myTextArea.parentNode.replaceChild(elt, myTextArea);
-    }, {
+    let myCodeMirror = CodeMirror(
+        function(elt) {
+            myTextArea.parentNode.replaceChild(elt, myTextArea);
+        },
+        {
             value: $("codesnip").text(),
             mode: "javascript",
             theme: "3024-night"
-        });
+        }
+    );
     //end code mirror
 });
