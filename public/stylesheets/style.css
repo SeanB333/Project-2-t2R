@@ -1,8 +1,21 @@
 body {
-  background-image: url(../images/xtract.jpg);
+  background-image: url(../images/xtract2.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-a {
-  color: rgb(255, 255, 255);
+.modal-content {
+  background-color: black;
+  background-image: url(../images/xtcover.png);
+  
+  color: blue;
+  border-style: solid;
+  border-color: blue;
+  border-radius: 3px;
 }
+
+.form-control {
+  background-color: black;
+  color: blue;
+  }

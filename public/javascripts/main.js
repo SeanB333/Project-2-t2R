@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // post modal functions
     $("#upload").on("click", function(event) {
         event.preventDefault();
         console.log("submitCode function ran");
@@ -40,12 +41,12 @@ $(document).ready(function() {
         $("#price").val("");
         $("#codesnip").val("");
     });
+    // search button functions
     $("#searchSubmit").on("click", function(event) {
         event.preventDefault();
         let keywords = $("#selectedKeyword")
             .val()
             .trim();
-
         $.ajax({
             url: `/api/keywords/${keywords}`,
             method: "GET"
@@ -53,6 +54,6 @@ $(document).ready(function() {
             console.log(result);
         });
         $("#selectedKeyword").val();
-        location.assign("http://localhost:8080/api/keywords/" + keywords);
+        location.assign(`http://localhost:8080/api/keywords/${keywords}`);
     });
 });
