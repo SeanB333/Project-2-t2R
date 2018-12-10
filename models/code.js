@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: "NA"
         },
         price: {
-            type: DataTypes.DECIMAL.ZEROFILL.UNSIGNED,
+            type: DataTypes.DECIMAL(3, 2).ZEROFILL.UNSIGNED,
             isDecimal: true,
             validate: {
                 not: ["[a-z]", "i"]
