@@ -9,10 +9,31 @@ router.get("/", function(req, res) {
 
 /*obtain info from user and create a new record in table*/
 router.post("/api/code", function(req, res) {
+    db.Users.findOrCreate({ where: { username: req.body.username } }).spread(
+        (user, created) => {
+            console.log(
+                user.get({
+                    plain: true
+                })
+            );
+            console.log(created);
+        }
+    );
+
+    // router.post("/api/users/", (req, res) => {
+    //     db.Users.findOrCreate({
+    //         where: { username: req.body.username }
+    //     }).spread(async function(users, created) {
+    //         const objUser = await patients.get({
+    //             plain: true
+    //         });
+    //     });
+
     db.Codes.create(
         {
             keywords: req.body.keywords,
             description: req.body.codeDescription,
+            language: req.body.language,
             price: req.body.price,
             codesnip: req.body.codesnip
         },
@@ -25,11 +46,16 @@ router.post("/api/code", function(req, res) {
 
 //look for keywords to be displayed in front end
 router.get("/api/keywords", function(req, res) {
-    de.Codes.findAll({}, { where: { keywords: req.body.keywords } }).then(
+    db.Codes.findAll({}, { where: { keywords: req.body.keywords } }).then(
         function(keywords) {
             let objKeywords = keywords[0].dataValues.keywords;
-            res.render("index", objKeywords);
+            res.json(objKeywords);
+            //res.render("display", { search: objKeywords });
         }
     );
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3bfd8cd960fcd851e4df5f496b1ba466ef63626b
 module.exports = router;

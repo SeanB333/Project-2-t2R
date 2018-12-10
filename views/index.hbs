@@ -1,15 +1,3 @@
-{{!-- search bar and button --}}
-<form class="form-inline m-5">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-</form>
-
-{{!-- modal button --}}
-<div class="row justify-content-center">
-    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Upload
-        Code</button>
-</div>
-
 {{!-- modal body --}}
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -27,16 +15,23 @@
                         <input type="text" class="form-control" id="username">
                     </div>
                     <div class="form-group">
+<<<<<<< HEAD
                         <label for="email" class="col-form-label">E-mail</label>
                         <input type="text" class="form-control" id="email">
                     </div>
                     <div class="form-group">
+=======
+>>>>>>> 3bfd8cd960fcd851e4df5f496b1ba466ef63626b
                         <label for="codeDescription" class="col-form-label">Description</label>
                         <input type="text" class="form-control" id="codeDescription">
                     </div>
                     <div class="form-group">
                         <label for="language" class="col-form-label">Language</label>
+<<<<<<< HEAD
                         <select class="custom-select custom-select-lg mb-3" id="language">
+=======
+                        <select id="language" class="custom-select custom-select-lg mb-3">
+>>>>>>> 3bfd8cd960fcd851e4df5f496b1ba466ef63626b
                             <option selected>Open this select menu</option>
                             <option value="html">Html</option>
                             <option value="css">CSS</option>
@@ -61,7 +56,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" id="upload" class="btn btn-primary">Upload code</button>
+                <button type="button" id="upload" class="btn btn-primary">Post</button>
             </div>
         </div>
     </div>
