@@ -10,6 +10,20 @@
 </head>
 
 <body>
+<div class="row m-5">
+    {{!-- search bar and button --}}
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    {{!-- modal button --}}
+    <div class="justify-content-center ml-2">
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
+            data-whatever="@mdo">Post Code</button>
+    </div>
+</div>
+
     {{{body}}}
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

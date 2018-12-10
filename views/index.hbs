@@ -1,13 +1,15 @@
-{{!-- search bar and button --}}
-<form class="form-inline m-5">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-</form>
+<div class="row m-5">
+    {{!-- search bar and button --}}
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
 
-{{!-- modal button --}}
-<div class="row justify-content-center">
-    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Upload
-        Code</button>
+    {{!-- modal button --}}
+    <div class="justify-content-center ml-2">
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
+            data-whatever="@mdo">Post Code</button>
+    </div>
 </div>
 
 {{!-- modal body --}}
@@ -25,10 +27,6 @@
                     <div class="form-group">
                         <label for="username" class="col-form-label">User Name</label>
                         <input type="text" class="form-control" id="username">
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="col-form-label">E-mail</label>
-                        <input type="text" class="form-control" id="email">
                     </div>
                     <div class="form-group">
                         <label for="codeDescription" class="col-form-label">Description</label>
@@ -61,7 +59,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" id="upload" class="btn btn-primary">Upload code</button>
+                <button type="button" id="upload" class="btn btn-primary">Post</button>
             </div>
         </div>
     </div>
