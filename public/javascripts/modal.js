@@ -18,9 +18,7 @@ $(document).ready(function() {
             price: $("#price")
                 .val()
                 .trim(),
-            codesnip: $("#codesnip")
-                .val()
-                .trim()
+            codesnip: myCodeMirror.getValue()
         };
 
         console.log("data = ", data);
@@ -83,7 +81,7 @@ $(document).ready(function() {
         }).then(function(result) {
             console.log(result);
         });
-        $("#selectedKeyword").val();
-        location.assign("http://localhost:8080/api/keywords/" + keywords);
+        //$("#selectedKeyword").val();
+        location.assign("/api/keywords/" + keywords);
     });
 });
