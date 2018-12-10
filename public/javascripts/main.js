@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // post modal functions
     $("#upload").on("click", function(event) {
         event.preventDefault();
         console.log("submitCode function ran");
@@ -38,6 +39,7 @@ $(document).ready(function() {
         $("#price").val("");
         $("#codesnip").val("");
     });
+<<<<<<< HEAD:public/javascripts/modal.js
 
     //when user changes #laguage dropdown value, update codemirror
     $("#language").change(function() {
@@ -69,19 +71,26 @@ $(document).ready(function() {
         }
     );
     //end code mirror
+=======
+    // search button functions
+>>>>>>> 56a0d5033ee96ddd12a2ba8ec3d477004614fdc0:public/javascripts/main.js
     $("#searchSubmit").on("click", function(event) {
         event.preventDefault();
         let keywords = $("#selectedKeyword")
             .val()
             .trim();
-
         $.ajax({
             url: `/api/keywords/${keywords}`,
             method: "GET"
         }).then(function(result) {
             console.log(result);
         });
+<<<<<<< HEAD:public/javascripts/modal.js
         //$("#selectedKeyword").val();
         location.assign("/api/keywords/" + keywords);
+=======
+        $("#selectedKeyword").val();
+        location.assign(`http://localhost:8080/api/keywords/${keywords}`);
+>>>>>>> 56a0d5033ee96ddd12a2ba8ec3d477004614fdc0:public/javascripts/main.js
     });
 });

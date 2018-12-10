@@ -47,8 +47,7 @@ router.post("/api/code", function(req, res) {
 
 //look for keywords to be displayed in front end
 router.get("/api/keywords/:keywords", function(req, res) {
-    console.log("params:: ", req.params);
-    console.log("keywords:: ", req.params.keywords);
+    console.log(req.params);
     db.Codes.findAll({ where: { keywords: req.params.keywords } }).then(
         function(results) {
             res.render("codearea", { data: results });
@@ -56,11 +55,13 @@ router.get("/api/keywords/:keywords", function(req, res) {
     );
 });
 
-router.get("/code", function(req, res) {
-    db.Codes.findAll().then(
-        function(results) {
-            res.render("codearea", { data: results });
-        }
-    );
+// browse all codesnips
+router.get("/api/code/", function(req, res) {
+    db.Codes.findAll({}).then(function(results) {
+        let data = { data: results };
+        console.log(results);
+        res.render("codearea", data);
+    });
 });
+
 module.exports = router;
