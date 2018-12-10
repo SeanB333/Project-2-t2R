@@ -40,4 +40,19 @@ $(document).ready(function() {
         $("#price").val("");
         $("#codesnip").val("");
     });
+    $("#searchSubmit").on("click", function(event) {
+        event.preventDefault();
+        let keywords = $("#selectedKeyword")
+            .val()
+            .trim();
+
+        $.ajax({
+            url: `/api/keywords/${keywords}`,
+            method: "GET"
+        }).then(function(result) {
+            console.log(result);
+        });
+        $("#selectedKeyword").val();
+        location.assign("http://localhost:8080/api/keywords/" + keywords);
+    });
 });
