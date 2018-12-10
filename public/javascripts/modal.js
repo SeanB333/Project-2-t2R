@@ -71,4 +71,19 @@ $(document).ready(function() {
         }
     );
     //end code mirror
+    $("#searchSubmit").on("click", function(event) {
+        event.preventDefault();
+        let keywords = $("#selectedKeyword")
+            .val()
+            .trim();
+
+        $.ajax({
+            url: `/api/keywords/${keywords}`,
+            method: "GET"
+        }).then(function(result) {
+            console.log(result);
+        });
+        $("#selectedKeyword").val();
+        location.assign("http://localhost:8080/api/keywords/" + keywords);
+    });
 });

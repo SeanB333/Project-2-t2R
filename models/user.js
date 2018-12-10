@@ -2,10 +2,7 @@ module.exports = function(sequelize, DataTypes) {
     const User = sequelize.define("Users", {
         username: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                is: ["^[a-z]+$", "i"]
-            }
+            allowNull: false
         },
         email: {
             type: DataTypes.STRING,
