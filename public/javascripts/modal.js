@@ -6,12 +6,24 @@ $(document).ready(function() {
     function submitCode(event) {
         event.preventDefault();
         console.log("submitCode function ran");
-        let username = $("#username").val().trim(); 
-        let email = $("#email").val().trim();
-        let codeDescription = $("#codeDescription").val().trim();
-        let language = $("#language").val().trim();
-        let keywords = $("#keywords").val().trim();
-        let price = $("#price").val().trim();
+        let username = $("#username")
+            .val()
+            .trim();
+        let email = $("#email")
+            .val()
+            .trim();
+        let codeDescription = $("#codeDescription")
+            .val()
+            .trim();
+        let language = $("#language")
+            .val()
+            .trim();
+        let keywords = $("#keywords")
+            .val()
+            .trim();
+        let price = $("#price")
+            .val()
+            .trim();
         let codesnip = $("#codesnip").val();
 
         let data = {
