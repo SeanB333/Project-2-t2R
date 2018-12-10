@@ -1,9 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
     const Codes = sequelize.define("Codes", {
+        codesnip: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+            defaultValue: "NA"
+        },
         codeDescrition: {
             type: DataTypes.TEXT,
             allowNull: false,
-            defaultValue: ""
+            defaultValue: "NA"
         },
         keywords: {
             type: DataTypes.TEXT,
@@ -11,12 +16,12 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 is: ["^[a-z]+$", "i"]
             },
-            defaultValue: ""
+            defaultValue: "NA"
         },
         languages: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue: ""
+            defaultValue: "NA"
         },
         price: {
             type: DataTypes.DECIMAL.ZEROFILL.UNSIGNED,
