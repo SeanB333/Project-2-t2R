@@ -54,8 +54,4 @@ router.get("/api/keywords", function(req, res) {
         }
     );
 });
-<<<<<<< HEAD
-=======
-
->>>>>>> 3bfd8cd960fcd851e4df5f496b1ba466ef63626b
 module.exports = router;
