@@ -6,9 +6,6 @@ $(document).ready(function() {
             username: $("#username")
                 .val()
                 .trim(),
-            email: $("#email")
-                .val()
-                .trim(),
             codeDescription: $("#codeDescription")
                 .val()
                 .trim(),
