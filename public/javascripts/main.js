@@ -72,10 +72,6 @@ $(document).ready(function() {
         }
     );
     //end code mirror
-    // $("textarea").each(function(index) {
-    //     let 
-    // });
-
 
     $("#searchSubmit").on("click", function(event) {
         event.preventDefault();
