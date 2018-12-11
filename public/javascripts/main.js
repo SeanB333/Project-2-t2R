@@ -10,7 +10,7 @@ $(document).ready(function() {
             codeDescription: $("#codeDescription")
                 .val()
                 .trim(),
-            language: $("#language")
+            languages: $("#language")
                 .val()
                 .trim(),
             keywords: $("#keywords")
