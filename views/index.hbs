@@ -13,13 +13,15 @@
     </div>
     {{!-- browse button --}}
     <div class="justify-content-center ml-2">
-        <button class="btn btn-outline-primary my-2 my-sm-0">Browse</button>
+        <button id="browseBtn" class="btn btn-outline-primary my-2 my-sm-0">Browse</button>
     </div>
      {{!-- options button --}}
-    <div class="justify-content-center ml-2 float-right">
+    <div class="justify-content-center ml-2">
         <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Options</button>
     </div>
+    <span id="rotate-btn"></span>
 </div>
+<span id="search-err" class="ml-5"></span>
 {{!-- modal post --}}
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

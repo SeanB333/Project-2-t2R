@@ -37,17 +37,20 @@ $(document).ready(function() {
                 data: data
             }).then(() => {
                 console.log("sent data");
-                $("#upload").addClass("success");
-                $("#upload").html("posted");
-                $("#successMsg").html("success, your code has been added");
-                $("#successMsg").css("color", "green");
-                setTimeout(function () {
+                $("#successMsg").html("<div class='loader'></div>");
+                setTimeout(function() {
+                    $("#upload").addClass("success");
+                    $("#upload").html("posted");
+                    $("#successMsg").html("success, your code has been added");
+                    $("#successMsg").css("color", "green");
+                }, 4000);
+
+                setTimeout(function() {
                     $("#upload").removeClass("success");
                     $("#upload").html("post");
                     $("#successMsg").html("");
                     location.reload();
-                }, 1000);
-                
+                }, 5000);
             });
 
             $("#username").val("");
@@ -97,13 +100,33 @@ $(document).ready(function() {
         let keywords = $("#selectedKeyword")
             .val()
             .trim();
-        $.ajax({
-            url: `/api/keywords/${keywords}`,
-            method: "GET"
-        }).then(function(result) {
-            console.log(result);
-        });
-        $("#selectedKeyword").val();
-        location.assign(`http://localhost:8080/api/keywords/${keywords}`);
+        if (keywords === "") {
+            $("#search-err").html("please enter search keywords");
+        } else {
+            $("#search-err").html("");
+            $("#rotate-btn").html("<div class='loader ml-5'></div>");
+            $.ajax({
+                url: `/api/keywords/${keywords}`,
+                method: "GET"
+            }).then(function(result) {
+                console.log(result);
+            });
+            $("#selectedKeyword").val();
+            setTimeout(function() {
+                location.assign(
+                    `http://localhost:8080/api/keywords/${keywords}`
+                );
+                $("#rotate-btn").html("");
+            }, 3000);
+        }
+    });
+    // browse button function
+    $("#browseBtn").click(function(e) {
+        e.preventDefault();
+        $("#rotate-btn").html("<div class='loader ml-5'></div>");
+        setTimeout(function() {
+            window.location = "/api/code/";
+            $("#rotate-btn").html("");
+        }, 3000);
     });
 });
