@@ -29,7 +29,7 @@ $(document).ready(function() {
             data.keywords === "" ||
             data.price === ""
         ) {
-            $("#error").html("you must enter info");
+            $("#error").html("You are required to enter your code info");
             console.log("err");
         } else {
             $.ajax("/api/code", {
@@ -37,6 +37,17 @@ $(document).ready(function() {
                 data: data
             }).then(() => {
                 console.log("sent data");
+                $("#upload").addClass("success");
+                $("#upload").html("posted");
+                $("#successMsg").html("success, your code has been added");
+                $("#successMsg").css("color", "green");
+                setTimeout(function () {
+                    $("#upload").removeClass("success");
+                    $("#upload").html("post");
+                    $("#successMsg").html("");
+                    location.reload();
+                }, 1000);
+                
             });
 
             $("#username").val("");

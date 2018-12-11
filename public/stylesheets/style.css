@@ -41,3 +41,8 @@ body {
 #error {
   color: red;
 }
+
+.success {
+  background-color: green;
+  transition: background-color 1s;
+}
