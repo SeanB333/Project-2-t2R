@@ -21,23 +21,45 @@ $(document).ready(function() {
                 .trim(),
             codesnip: myCodeMirror.getValue()
         };
+        console.log("data = ", data.username);
+        // empty form validation
+        if (
+            data.username === "" ||
+            data.codeDescription === "" ||
+            data.keywords === "" ||
+            data.price === ""
+        ) {
+            $("#error").html("You are required to enter your code info");
+            console.log("err");
+        } else {
+            $.ajax("/api/code", {
+                type: "POST",
+                data: data
+            }).then(() => {
+                console.log("sent data");
+                $("#successMsg").html("<div class='loader'></div>");
+                setTimeout(function() {
+                    $("#upload").addClass("success");
+                    $("#upload").html("posted");
+                    $("#successMsg").html("success, your code has been added");
+                    $("#successMsg").css("color", "green");
+                }, 4000);
 
-        console.log("data = ", data);
+                setTimeout(function() {
+                    $("#upload").removeClass("success");
+                    $("#upload").html("post");
+                    $("#successMsg").html("");
+                    location.reload();
+                }, 5000);
+            });
 
-        $.ajax("/api/code", {
-            type: "POST",
-            data: data
-        }).then(() => {
-            console.log("sent data");
-        });
-
-        $("#username").val("");
-        $("#email").val("");
-        $("#codeDescription").val("");
-        $("#language").val("");
-        $("#keywords").val("");
-        $("#price").val("");
-        $("#codesnip").val("");
+            $("#username").val("");
+            $("#email").val("");
+            $("#codeDescription").val("");
+            $("#keywords").val("");
+            $("#price").val("");
+            $("#codesnip").val("");
+        }
     });
 
     //when user changes #laguage dropdown value, update codemirror
@@ -80,17 +102,32 @@ $(document).ready(function() {
             .val()
             .trim();
         if (keywords === "") {
-            return true;
+            $("#search-err").html("please enter search keywords");
+        } else {
+            $("#search-err").html("");
+            $("#rotate-btn").html("<div class='loader ml-5'></div>");
+            $.ajax({
+                url: `/api/keywords/${keywords}`,
+                method: "GET"
+            }).then(function(result) {
+                console.log(result);
+            });
+            $("#selectedKeyword").val();
+            setTimeout(function() {
+                location.assign(
+                    `http://localhost:8080/api/keywords/${keywords}`
+                );
+                $("#rotate-btn").html("");
+            }, 3000);
         }
-
-        $.ajax({
-            url: `/api/keywords/${keywords}`,
-            method: "GET"
-        }).then(function(result) {
-            console.log(result);
-        });
-
-        $("#selectedKeyword").val("");
-        location.assign(`http://localhost:8080/api/keywords/${keywords}`);
+    });
+    // browse button function
+    $("#browseBtn").click(function(e) {
+        e.preventDefault();
+        $("#rotate-btn").html("<div class='loader ml-5'></div>");
+        setTimeout(function() {
+            window.location = "/api/code/";
+            $("#rotate-btn").html("");
+        }, 3000);
     });
 });
