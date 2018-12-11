@@ -19,9 +19,7 @@ $(document).ready(function() {
             price: $("#price")
                 .val()
                 .trim(),
-            codesnip: $("#codesnip")
-                .val()
-                .trim()
+            codesnip: myCodeMirror.getValue()
         };
 
         console.log("data = ", data);
@@ -41,7 +39,40 @@ $(document).ready(function() {
         $("#price").val("");
         $("#codesnip").val("");
     });
-    // search button functions
+
+    //when user changes #laguage dropdown value, update codemirror
+    $("#language").change(function() {
+        console.log("language changed: ", $("#language").val());
+        let lang = $("#language").val();
+        if (lang === "html") {
+            lang = "htmlmixed";
+        }
+        if (lang === "json") {
+            lang = "javascript";
+        }
+
+        myCodeMirror.setOption("mode", lang);
+    });
+
+    //code mirror initialize
+    let myTextArea = document.getElementById("codesnip");
+    let code = myTextArea.innerText;
+
+    console.log(myTextArea);
+    console.log(code);
+
+    let myCodeMirror = CodeMirror(
+        function(elt) {
+            myTextArea.parentNode.replaceChild(elt, myTextArea);
+        },
+        {
+            value: code,
+            mode: "javascript",
+            theme: "3024-night"
+        }
+    );
+    //end code mirror
+
     $("#searchSubmit").on("click", function(event) {
         event.preventDefault();
         let keywords = $("#selectedKeyword")

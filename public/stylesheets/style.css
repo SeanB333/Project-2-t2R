@@ -19,3 +19,17 @@ body {
   background-color: black;
   color: blue;
   }
+
+.line-hgt {
+  line-height: 90%;
+}
+
+.titlealign {
+  text-align: center;
+}
+
+.colorshay{
+
+  color: white;
+
+}
