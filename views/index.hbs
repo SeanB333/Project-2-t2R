@@ -1,6 +1,6 @@
 {{!-- button area --}}
 <body>
-<div class="row w-100 m-5 fade-btn">
+<div class="row m-5 fade-btn">
     {{!-- search bar and button --}}
     <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="selectedKeyword">
@@ -13,37 +13,39 @@
     </div>
     {{!-- browse button --}}
     <div class="justify-content-center ml-2">
-        <button class="btn btn-outline-primary my-2 my-sm-0"><a href="/api/code/">Browse</a></button>
+        <button id="browseBtn" class="btn btn-outline-primary my-2 my-sm-0">Browse</button>
     </div>
      {{!-- options button --}}
-    <div class="justify-content-center ml-2 float-right">
+    <div class="justify-content-center ml-2">
         <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Options</button>
     </div>
+    <span id="rotate-btn"></span>
 </div>
+<span id="search-err" class="ml-5"></span>
 {{!-- modal post --}}
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add your code here</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Xctract your code </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form>
+                    <span id="error"></span>
                     <div class="form-group">
-                        <label for="username" class="col-form-label">User Name</label>
-                        <input type="text" class="form-control" id="username">
+                        <label for="username" class="col-form-label">User name</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter user name here" name="fname" required>
                     </div>
                     <div class="form-group">
-                        <label for="codeDescription" class="col-form-label">Description</label>
-                        <input type="text" class="form-control" id="codeDescription">
+                        <label for="codeDescription" class="col-form-label">Describe your code</label>
+                        <input type="text" class="form-control" id="codeDescription" placeholder="Enter description here" name="fname" required>
                     </div>
                     <div class="form-group">
-                        <label for="language" class="col-form-label">Language</label>
+                        <label for="language" class="col-form-label">Choose your language</label>
                         <select id="language" class="custom-select custom-select-md mb-3 form-control">
-                            <option selected>Open this select menu</option>
                             <option value="html">Html</option>
                             <option value="css">CSS</option>
                             <option value="javascript">Javascript</option>
@@ -52,20 +54,21 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="keywords" class="col-form-label">Keywords</label>
-                        <input type="text" class="form-control" id="keywords">
+                        <label for="keywords" class="col-form-label">Enter keywords about your code</label>
+                        <input type="text" class="form-control" id="keywords" placeholder="Keywords" name="fname" required>
                     </div>
                     <div class="form-group">
                         <label for="price" class="col-form-label">Price</label>
-                        <input type="text" class="form-control" id="price">
+                        <input type="text" class="form-control" id="price" placeholder="$0.00" name="fname" required>
                     </div>
-                    <div class="form-group">
-                        <label for="codesnip" class="col-form-label">Code</label>
-                        <textarea class="form-control" id="codesnip"></textarea>
+                    <div class="form-group outline">
+                        <label for="codesnip" class="col-form-label"> Copy and paste your code here</label>
+                        <textarea class="form-control " id="codesnip"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
+                <span id="successMsg"></span>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" id="upload" class="btn btn-primary">Post</button>
             </div>
