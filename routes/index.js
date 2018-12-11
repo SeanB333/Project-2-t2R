@@ -28,6 +28,7 @@ router.post("/api/code", function(req, res) {
             return objUser;
         })
         .then(function(objUser) {
+            console.log(req.body);
             db.Codes.create(
                 {
                     keywords: req.body.keywords,
@@ -37,8 +38,10 @@ router.post("/api/code", function(req, res) {
                     codesnip: req.body.codesnip,
                     usersId: objUser.id
                 },
-                { where: { users: [{ username: req.body.username }] } },
-                { include: [{ model: db.Users, as: "users" }] }
+                {
+                    where: { users: [{ username: req.body.username }] },
+                    include: [{ model: db.Users, as: "users" }]
+                }
             ).then(function(results) {
                 res.json(results);
             });

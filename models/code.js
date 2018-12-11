@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             defaultValue: "NA"
         },
-        codeDescrition: {
+        codeDescription: {
             type: DataTypes.TEXT,
             allowNull: false,
             defaultValue: "NA"
@@ -13,9 +13,6 @@ module.exports = function(sequelize, DataTypes) {
         keywords: {
             type: DataTypes.TEXT,
             allowNull: false,
-            validate: {
-                is: ["^[a-z]+$", "i"]
-            },
             defaultValue: "NA"
         },
         languages: {
@@ -26,9 +23,6 @@ module.exports = function(sequelize, DataTypes) {
         price: {
             type: DataTypes.DECIMAL(4, 2).ZEROFILL.UNSIGNED,
             isDecimal: true,
-            validate: {
-                not: ["[a-z]", "i"]
-            },
             validate: {
                 min: {
                     args: [0],
