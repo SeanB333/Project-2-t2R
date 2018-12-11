@@ -32,11 +32,11 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     Codes.associate = function(models) {
-        Codes.belongsTo(
-            models.Users,
-            { as: "users" },
-            { foreignKey: { name: "usersId" } }
-        );
+        Codes.belongsTo(models.Users, {
+            as: "users",
+            onDelete: "CASCADE",
+            foreignKey: { name: "usersId", allowNull: false }
+        });
     };
     return Codes;
 };

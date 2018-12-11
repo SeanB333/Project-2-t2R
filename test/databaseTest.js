@@ -1,4 +1,5 @@
 require("mocha");
+const db = require("../models");
 
 describe("codes model", () => {
     beforeEach(function(done) {
