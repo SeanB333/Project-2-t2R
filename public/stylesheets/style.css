@@ -37,3 +37,7 @@ body {
   border-radius: 3px;
   border-width: thin;
 }
+
+#error {
+  color: red;
+}

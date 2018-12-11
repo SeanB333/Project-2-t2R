@@ -25,20 +25,21 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Xctract your code</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Xctract your code </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form>
+                    <span id="error"></span>
                     <div class="form-group">
                         <label for="username" class="col-form-label">User name</label>
-                        <input type="text" class="form-control" id="username" placeholder="Enter user name here" >
+                        <input type="text" class="form-control" id="username" placeholder="Enter user name here" name="fname" required>
                     </div>
                     <div class="form-group">
                         <label for="codeDescription" class="col-form-label">Describe your code</label>
-                        <input type="text" class="form-control" id="codeDescription" placeholder="Enter description here">
+                        <input type="text" class="form-control" id="codeDescription" placeholder="Enter description here" name="fname" required>
                     </div>
                     <div class="form-group">
                         <label for="language" class="col-form-label">Choose your language</label>
@@ -52,11 +53,11 @@
                     </div>
                     <div class="form-group">
                         <label for="keywords" class="col-form-label">Enter keywords about your code</label>
-                        <input type="text" class="form-control" id="keywords" placeholder="Keywords">
+                        <input type="text" class="form-control" id="keywords" placeholder="Keywords" name="fname" required>
                     </div>
                     <div class="form-group">
                         <label for="price" class="col-form-label">Price</label>
-                        <input type="text" class="form-control" id="price" placeholder="$0.00">
+                        <input type="text" class="form-control" id="price" placeholder="$0.00" name="fname" required>
                     </div>
                     <div class="form-group outline">
                         <label for="codesnip" class="col-form-label">Copy and paste your code</label>

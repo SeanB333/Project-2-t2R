@@ -21,23 +21,31 @@ $(document).ready(function() {
                 .trim(),
             codesnip: myCodeMirror.getValue()
         };
+        console.log("data = ", data.username);
+        // empty form validation
+        if (
+            data.username === "" ||
+            data.codeDescription === "" ||
+            data.keywords === "" ||
+            data.price === ""
+        ) {
+            $("#error").html("you must enter info");
+            console.log("err");
+        } else {
+            $.ajax("/api/code", {
+                type: "POST",
+                data: data
+            }).then(() => {
+                console.log("sent data");
+            });
 
-        console.log("data = ", data);
-
-        $.ajax("/api/code", {
-            type: "POST",
-            data: data
-        }).then(() => {
-            console.log("sent data");
-        });
-
-        $("#username").val("");
-        $("#email").val("");
-        $("#codeDescription").val("");
-        $("#language").val("");
-        $("#keywords").val("");
-        $("#price").val("");
-        $("#codesnip").val("");
+            $("#username").val("");
+            $("#email").val("");
+            $("#codeDescription").val("");
+            $("#keywords").val("");
+            $("#price").val("");
+            $("#codesnip").val("");
+        }
     });
 
     //when user changes #laguage dropdown value, update codemirror
