@@ -19,3 +19,7 @@ body {
   background-color: black;
   color: blue;
   }
+
+.line-hgt {
+  line-height: 90%;
+}

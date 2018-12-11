@@ -1,40 +1,15 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>{{title}}</title>
+    {{!-- links to CDN and css --}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-
-<body>
-<div class="row m-5">
-    {{!-- search bar and button --}}
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="selectedKeyword">
-        <button class="btn btn-outline-primary my-2 my-sm-0"  type="submit" id="searchSubmit">Search</button>
-    </form>
-
-    {{!-- modal button --}}
-    <div class="justify-content-center ml-2">
-        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
-            data-whatever="@mdo">Post Code</button>
-    </div>
-    {{!-- options button --}}
-    <div class="justify-content-center ml-2">
-        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Options</button>
-    </div>
-    {{!-- browse button --}}
-    <div class="justify-content-center ml-2">
-        
-        <button class="btn btn-outline-primary my-2 my-sm-0"><a href="/api/code/">Browse</a></button>
-    </div>
-    
-</div>
-
     {{{body}}}
 </body>
+{{!-- script links for BS4 and Jquery --}}
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
 <Script src="/javascripts/main.js"></Script>
@@ -42,5 +17,4 @@
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
-
 </html>
