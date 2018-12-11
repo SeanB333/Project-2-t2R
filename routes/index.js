@@ -31,7 +31,7 @@ router.post("/api/code", function(req, res) {
             db.Codes.create(
                 {
                     keywords: req.body.keywords,
-                    description: req.body.codeDescription,
+                    codeDescription: req.body.codeDescription,
                     languages: req.body.languages,
                     price: req.body.price,
                     codesnip: req.body.codesnip,
