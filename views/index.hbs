@@ -1,3 +1,25 @@
+{{!-- button area --}}
+<body>
+<div class="row w-100 m-5 fade-btn">
+    {{!-- search bar and button --}}
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="selectedKeyword">
+        <button class="btn btn-outline-primary my-2 my-sm-0"  type="submit" id="searchSubmit">Search</button>
+    </form>
+    {{!-- modal button --}}
+    <div class="justify-content-center ml-2">
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
+            data-whatever="@mdo">Post Code</button>
+    </div>
+    {{!-- browse button --}}
+    <div class="justify-content-center ml-2">
+        <button class="btn btn-outline-primary my-2 my-sm-0"><a href="/api/code/">Browse</a></button>
+    </div>
+     {{!-- options button --}}
+    <div class="justify-content-center ml-2 float-right">
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Options</button>
+    </div>
+</div>
 {{!-- modal post --}}
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
