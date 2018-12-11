@@ -60,6 +60,7 @@ router.get("/api/keywords/:keywords", async function(req, res) {
         where: { keywords: req.params.keywords },
         include: [{ model: db.Users, as: "users" }]
     });
+    console.log(codeUserData);
     res.render("codearea", { data: codeUserData });
 });
 
