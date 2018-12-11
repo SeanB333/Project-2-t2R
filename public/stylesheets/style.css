@@ -20,7 +20,11 @@ body {
   color: blue;
   }
 
-.titlealign{
+.line-hgt {
+  line-height: 90%;
+}
+
+.titlealign {
   text-align: center;
 }
 
