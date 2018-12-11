@@ -8,8 +8,7 @@ body {
 .modal-content {
   background-color: black;
   background-image: url(../images/xtcover.png);
-  
-  color: blue;
+  color: rgb(255, 255, 255);
   border-style: solid;
   border-color: blue;
   border-radius: 3px;
@@ -17,7 +16,7 @@ body {
 
 .form-control {
   background-color: black;
-  color: blue;
+  color: rgb(255, 255, 255);
   }
 
 .line-hgt {
@@ -29,7 +28,12 @@ body {
 }
 
 .colorshay{
-
   color: white;
+}
 
+.outline {
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  border-width: thin;
 }
