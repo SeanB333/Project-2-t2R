@@ -20,7 +20,7 @@ body {
   }
 
 .line-hgt {
-  line-height: 90%;
+  line-height: normal;
 }
 
 .titlealign {
@@ -71,4 +71,16 @@ body {
 #search-err {
   color: red;
   transition: color 2s;
+}
+/* code area css */
+
+.card-color {
+  color: white;
+  background-color: black;
+  background-image: url(../images/xtcover.png);
+}
+
+.card-words {
+  font-weight: bold;
+  color: blue !important;
 }

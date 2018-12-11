@@ -129,4 +129,10 @@ $(document).ready(function() {
             $("#rotate-btn").html("");
         }, 3000);
     });
+    // browse button function
+    $("#backBtn").click(function(e) {
+        e.preventDefault();
+        console.log("btn works");
+        window.location = "/";
+    });
 });
