@@ -45,6 +45,15 @@ router.post("/api/code", function(req, res) {
         });
 });
 
+// browse all codesnips
+router.get("/api/code/", function(req, res) {
+    db.Codes.findAll({}).then(function(results) {
+        let data = { data: results };
+        console.log(results);
+        res.render("codearea", data);
+    });
+});
+
 //look for keywords to be displayed in front end
 router.get("/api/keywords/:keywords", async function(req, res) {
     const codeUserData = await db.Codes.findAll({
