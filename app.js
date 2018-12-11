@@ -1,4 +1,3 @@
-const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
@@ -20,11 +19,6 @@ app.use(ignoreFavicon);
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    next(createError(404));
-});
-
 const exphbs = require("express-handlebars");
 app.engine(
     ".hbs",
@@ -41,7 +35,7 @@ app.set("view engine", ".hbs");
 
 const db = require("./models");
 const PORT = process.env.PORT || 8080;
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({}).then(function() {
     app.listen(PORT, () => {
         console.log(`Server listening on http://localhost:${PORT}`);
     });

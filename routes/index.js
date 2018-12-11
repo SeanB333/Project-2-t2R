@@ -4,12 +4,9 @@ const db = require("../models");
 
 /* GET home page. */
 router.get("/", function(req, res) {
-    res.render("index", { title: "Extract" });
+    res.render("index");
 });
 
-router.get("/keywords", function(req, res) {
-    res.render("codearea", { title: "Search Deivery" });
-});
 /*obtain info from user and create a new record in table*/
 router.post("/api/code", function(req, res) {
     db.Users.findOrCreate({ where: { username: req.body.username } })
@@ -27,34 +24,48 @@ router.post("/api/code", function(req, res) {
             console.log(created);
             return objUser;
         })
-        .then(function(objUser) {
-            console.log(req.body);
-            db.Codes.create(
-                {
-                    keywords: req.body.keywords,
-                    codeDescription: req.body.codeDescription,
-                    languages: req.body.languages,
-                    price: req.body.price,
-                    codesnip: req.body.codesnip,
-                    usersId: objUser.id
-                },
-                {
-                    where: { users: [{ username: req.body.username }] },
-                    include: [{ model: db.Users, as: "users" }]
+        .then(async function(objUser) {
+            try {
+                const createCodeInfo = await db.Codes.create(
+                    {
+                        keywords: req.body.keywords,
+                        codeDescription: req.body.codeDescription,
+                        languages: req.body.languages,
+                        price: req.body.price,
+                        codesnip: req.body.codesnip,
+                        usersId: objUser.id
+                    },
+                    {
+                        where: { users: [{ username: req.body.username }] },
+                        include: [{ model: db.Users, as: "users" }]
+                    }
+                );
+                if (createCodeInfo) {
+                    res.json(createCodeInfo);
+                } else {
+                    res.sendStatus(404);
                 }
-            ).then(function(results) {
-                res.json(results);
-            });
+            } catch (error) {
+                res.sendStatus(500);
+            }
         });
 });
 
 //look for keywords to be displayed in front end
 router.get("/api/keywords/:keywords", async function(req, res) {
-    const codeUserData = await db.Codes.findAll({
-        where: { keywords: req.params.keywords },
-        include: [{ model: db.Users, as: "users" }]
-    });
-    res.render("codearea", { data: codeUserData });
+    try {
+        const codeUserData = await db.Codes.findAll({
+            where: { keywords: { $like: `%${req.params.keywords}%` } },
+            include: [{ model: db.Users, as: "users" }]
+        });
+        if (codeUserData) {
+            res.render("codearea", { data: codeUserData });
+        } else {
+            res.sendStatus(404);
+        }
+    } catch (error) {
+        res.sendStatus(500);
+    }
 });
 
 // browse all codesnips

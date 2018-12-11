@@ -75,16 +75,22 @@ $(document).ready(function() {
 
     $("#searchSubmit").on("click", function(event) {
         event.preventDefault();
+
         let keywords = $("#selectedKeyword")
             .val()
             .trim();
+        if (keywords === "") {
+            return true;
+        }
+
         $.ajax({
             url: `/api/keywords/${keywords}`,
             method: "GET"
         }).then(function(result) {
             console.log(result);
         });
-        $("#selectedKeyword").val();
+
+        $("#selectedKeyword").val("");
         location.assign(`http://localhost:8080/api/keywords/${keywords}`);
     });
 });
