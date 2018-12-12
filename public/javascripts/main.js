@@ -1,6 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function() {
     // post modal functions
-    $("#upload").on("click", function (event) {
+    $("#upload").on("click", function(event) {
         event.preventDefault();
         console.log("submitCode function ran");
         const data = {
@@ -38,14 +38,14 @@ $(document).ready(function () {
             }).then(() => {
                 console.log("sent data");
                 $("#successMsg").html("<div class='loader'></div>");
-                setTimeout(function () {
+                setTimeout(function() {
                     $("#upload").addClass("success");
                     $("#upload").html("posted");
                     $("#successMsg").html("success, your code has been added");
                     $("#successMsg").css("color", "green");
                 }, 4000);
 
-                setTimeout(function () {
+                setTimeout(function() {
                     $("#upload").removeClass("success");
                     $("#upload").html("post");
                     $("#successMsg").html("");
@@ -63,7 +63,7 @@ $(document).ready(function () {
     });
 
     //when user changes #laguage dropdown value, update codemirror
-    $("#language").change(function () {
+    $("#language").change(function() {
         console.log("language changed: ", $("#language").val());
         let lang = $("#language").val();
         if (lang === "html") {
@@ -79,7 +79,6 @@ $(document).ready(function () {
     //code mirror initialize
     let myCodeMirror;
     if (document.getElementById("codesnip")) {
-
         let myTextArea = document.getElementById("codesnip");
 
         let code = myTextArea.innerText;
@@ -88,7 +87,7 @@ $(document).ready(function () {
         console.log(code);
 
         myCodeMirror = CodeMirror(
-            function (elt) {
+            function(elt) {
                 myTextArea.parentNode.replaceChild(elt, myTextArea);
             },
             {
@@ -101,11 +100,13 @@ $(document).ready(function () {
 
     //codemirror for the search/browse results
     let codelist = [];
-    $(".search-code").each(function (index) {
+    $(".search-code").each(function(index) {
         console.log($(this).text());
         let textArea = this;
         let text = $(this).text();
-        let lang = $(".info-div").find(`[data-index='${index + 1}']`).attr("data-lang");
+        let lang = $(".info-div")
+            .find(`[data-index='${index + 1}']`)
+            .attr("data-lang");
         if (lang === "html") {
             lang = "htmlmixed";
         }
@@ -114,20 +115,22 @@ $(document).ready(function () {
         }
         console.log(index + 1);
         console.log(lang);
-        codelist.push(CodeMirror(
-            function(elt) {
-                textArea.parentNode.replaceChild(elt, textArea);
-            },
-            {
-                value: text,
-                mode: lang,
-                theme: "3024-night"
-            }
-        ))        
+        codelist.push(
+            CodeMirror(
+                function(elt) {
+                    textArea.parentNode.replaceChild(elt, textArea);
+                },
+                {
+                    value: text,
+                    mode: lang,
+                    theme: "3024-night"
+                }
+            )
+        );
     });
     //end code mirror
 
-    $("#searchSubmit").on("click", function (event) {
+    $("#searchSubmit").on("click", function(event) {
         event.preventDefault();
         let keywords = $("#selectedKeyword")
             .val()
@@ -140,11 +143,11 @@ $(document).ready(function () {
             $.ajax({
                 url: `/api/keywords/${keywords}`,
                 method: "GET"
-            }).then(function (result) {
+            }).then(function(result) {
                 console.log(result);
             });
             $("#selectedKeyword").val();
-            setTimeout(function () {
+            setTimeout(function() {
                 location.assign(
                     `http://localhost:8080/api/keywords/${keywords}`
                 );
@@ -153,10 +156,10 @@ $(document).ready(function () {
         }
     });
     // browse button function
-    $("#browseBtn").click(function (e) {
+    $("#browseBtn").click(function(e) {
         e.preventDefault();
         $("#rotate-btn").html("<div class='loader ml-5'></div>");
-        setTimeout(function () {
+        setTimeout(function() {
             window.location = "/api/code/";
             $("#rotate-btn").html("");
         }, 3000);
