@@ -37,7 +37,9 @@ $(document).ready(function() {
                 data: data
             }).then(() => {
                 console.log("sent data");
-                $("#successMsg").html("<div class='loader'></div>");
+                $("#successMsg").html(
+                    "<div class='lds-spinner mr-5'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>"
+                );
                 setTimeout(function() {
                     $("#upload").addClass("success");
                     $("#upload").html("posted");
@@ -139,7 +141,9 @@ $(document).ready(function() {
             $("#search-err").html("please enter search keywords");
         } else {
             $("#search-err").html("");
-            $("#rotate-btn").html("<div class='loader ml-5'></div>");
+            $("#rotate-btn").html(
+                "<div class='lds-spinner ml-5'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>"
+            );
             $.ajax({
                 url: `/api/keywords/${keywords}`,
                 method: "GET"
@@ -158,10 +162,18 @@ $(document).ready(function() {
     // browse button function
     $("#browseBtn").click(function(e) {
         e.preventDefault();
-        $("#rotate-btn").html("<div class='loader ml-5'></div>");
+        $("#rotate-btn").html(
+            "<div class='lds-spinner ml-5'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>"
+        );
         setTimeout(function() {
             window.location = "/api/code/";
             $("#rotate-btn").html("");
         }, 3000);
+    });
+    // browse button function
+    $("#backBtn").click(function(e) {
+        e.preventDefault();
+        console.log("btn works");
+        window.location = "/";
     });
 });
