@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: "NA"
         },
         price: {
-            type: DataTypes.DECIMAL(4, 2).ZEROFILL.UNSIGNED,
+            type: DataTypes.DECIMAL(6, 2).ZEROFILL.UNSIGNED,
             isDecimal: true,
             validate: {
                 min: {
