@@ -79,22 +79,57 @@ $(document).ready(function() {
     });
 
     //code mirror initialize
-    let myTextArea = document.getElementById("codesnip");
-    let code = myTextArea.innerText;
+    let myCodeMirror;
+    if (document.getElementById("codesnip")) {
+        let myTextArea = document.getElementById("codesnip");
 
-    console.log(myTextArea);
-    console.log(code);
+        let code = myTextArea.innerText;
 
-    let myCodeMirror = CodeMirror(
-        function(elt) {
-            myTextArea.parentNode.replaceChild(elt, myTextArea);
-        },
-        {
-            value: code,
-            mode: "javascript",
-            theme: "3024-night"
+        console.log(myTextArea);
+        console.log(code);
+
+        myCodeMirror = CodeMirror(
+            function(elt) {
+                myTextArea.parentNode.replaceChild(elt, myTextArea);
+            },
+            {
+                value: code,
+                mode: "javascript",
+                theme: "3024-night"
+            }
+        );
+    }
+
+    //codemirror for the search/browse results
+    let codelist = [];
+    $(".search-code").each(function(index) {
+        console.log($(this).text());
+        let textArea = this;
+        let text = $(this).text();
+        let lang = $(".info-div")
+            .find(`[data-index='${index + 1}']`)
+            .attr("data-lang");
+        if (lang === "html") {
+            lang = "htmlmixed";
         }
-    );
+        if (lang === "json") {
+            lang = "javascript";
+        }
+        console.log(index + 1);
+        console.log(lang);
+        codelist.push(
+            CodeMirror(
+                function(elt) {
+                    textArea.parentNode.replaceChild(elt, textArea);
+                },
+                {
+                    value: text,
+                    mode: lang,
+                    theme: "3024-night"
+                }
+            )
+        );
+    });
     //end code mirror
 
     $("#searchSubmit").on("click", function(event) {
