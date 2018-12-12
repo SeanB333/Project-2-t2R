@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // post modal functions
+    // post form infortion
     $("#upload").on("click", function(event) {
         event.preventDefault();
         console.log("submitCode function ran");
@@ -134,6 +134,7 @@ $(document).ready(function() {
 
     $("#searchSubmit").on("click", function(event) {
         event.preventDefault();
+
         let keywords = $("#selectedKeyword")
             .val()
             .trim();
