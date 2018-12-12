@@ -1,4 +1,5 @@
 require("mocha");
+const expect = require("chai").expect;
 const db = require("../models");
 
 describe("codes model", () => {
@@ -6,21 +7,16 @@ describe("codes model", () => {
         db.sequelize
             .sync({ force: true }) // drops table and re-creates it
             .then(async () => {
-                const codes = await db.Codes.create({ language: "CSS" });
+                await db.Codes.create({ language: "CSS" });
                 const users = await db.Users.create({ username: "aime" });
-                await codes.addUsers(users);
+                expect(users[0].Users.dataValues.username).to.equal("aime");
+                //console.log(Object.keys(codes));
+                //await db.Codes.getUsers(user);
                 done();
             })
 
             .catch(function(error) {
                 done(error);
             });
-    });
-
-    it("should have all associations", async () => {
-        const codes = await db.Users.findOne({ id: 1 });
-        const users = await codes.getUsers();
-        expect(users.length).to.equal(1);
-        expect(users[0].get().username).to.equal("aime");
     });
 });
