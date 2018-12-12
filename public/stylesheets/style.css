@@ -31,6 +31,18 @@ body {
   color: white;
 }
 
+.cardcolor{
+  color: black;
+}
+
+.shayimg{
+  width: 100%;
+}
+
+.fontsize {
+  font-size: 30px;
+}
+
 .outline {
   border-style: solid;
   border-color: rgb(255, 255, 255);
