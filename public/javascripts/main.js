@@ -21,7 +21,7 @@ $(document).ready(function() {
                 .trim(),
             codesnip: myCodeMirror.getValue()
         };
-        console.log("data = ", data.username);
+        console.log(data);
         // empty form validation
         if (
             data.username === "" ||
