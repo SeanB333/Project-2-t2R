@@ -45,14 +45,14 @@ $(document).ready(function() {
                     $("#upload").html("posted");
                     $("#successMsg").html("success, your code has been added");
                     $("#successMsg").css("color", "green");
-                }, 4000);
+                }, 2000);
 
                 setTimeout(function() {
                     $("#upload").removeClass("success");
                     $("#upload").html("post");
                     $("#successMsg").html("");
                     location.reload();
-                }, 5000);
+                }, 2200);
             });
 
             $("#username").val("");

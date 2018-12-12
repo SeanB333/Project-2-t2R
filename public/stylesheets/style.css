@@ -129,7 +129,7 @@ body {
 /* search barr error css */
 #search-err {
   color: red;
-  transition: color 2s;
+  transition: color 0.5s;
 }
 /* code area css */
 
