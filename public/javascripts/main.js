@@ -154,7 +154,7 @@ $(document).ready(function() {
             $("#selectedKeyword").val();
             setTimeout(function() {
                 location.assign(
-                    `http://localhost:8080/api/keywords/${keywords}`
+                    `https://medsperhour-develop.herokuapp.com/${keywords}`
                 );
                 $("#rotate-btn").html("");
             }, 3000);

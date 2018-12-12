@@ -33,7 +33,7 @@ app.set("view engine", ".hbs");
 
 const db = require("./models");
 const PORT = process.env.PORT || 8080;
-db.sequelize.sync({ }).then(function() {
+db.sequelize.sync({}).then(function() {
     app.listen(PORT, () => {
         console.log(`Server listening on http://localhost:${PORT}`);
     });
