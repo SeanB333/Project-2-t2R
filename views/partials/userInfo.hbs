@@ -1,18 +1,19 @@
+{{!-- code snip area --}}
 <div class="container mt-5 bg-primary">
   <div class="row">
     <div class="col-sm-6 px-0 col-md-5 col-lg-5">
       <div class="card info-div">
-        <div class="card-body line-hgt">
-          <p class="card-text">Created by: {{users.username}}</p>
-          <p class="card-text">Created At : {{createdAt}}</p>
-          <p class="card-text lang-tag" data-index={{id}} data-lang={{languages}}>Language: {{languages}}</p>
-          <p class="card-text">Code description: {{codeDescription}}</p>
-          <p class="card-text">Price: {{price}}</p>
-          <p class="card-text">Keywords: {{keywords}}</p>
+        <div class="card-body line-hgt card-color">
+          <p class="card-text"><a class="card-words">Created by: </a>{{users.username}}</p>
+          <p class="card-text"><a class="card-words">Created At : </a>{{createdAt}}</p>
+          <p class="card-text lang-tag" data-index={{id}} data-lang={{languages}}><a class="card-words">Language: </a>{{languages}}</p>
+          <p class="card-text"><a class="card-words">Code description: </a>{{codeDescription}}</p>
+          <p class="card-text"><a class="card-words">Price: </a>{{price}}</p>
+          <p class="card-text"><a class="card-words">Keywords: </a>{{keywords}}</p>
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-md-5 col-lg-5 px-0">
+    <div class="col-sm-6 col-md-7 col-lg-7 px-0">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Code</h5>
