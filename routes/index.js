@@ -62,7 +62,6 @@ router.get("/api/code/", function(req, res) {
 
 //look for keywords to be displayed in front end
 router.get("/api/keywords/:keywords", async function(req, res) {
-
     try {
         const codeUserData = await db.Codes.findAll({
             where: { keywords: { $like: `%${req.params.keywords}%` } },
@@ -83,7 +82,6 @@ router.get("/api/keywords/:keywords", async function(req, res) {
     });
     console.log(codeUserData);
     res.render("codearea", { data: codeUserData });
-
 });
 
 // browse all codesnips
