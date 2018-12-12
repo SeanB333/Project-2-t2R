@@ -7,7 +7,7 @@
     "start": "node ./bin/www",
     "lint": "eslint **/*.js --quiet",
     "fix": "eslint --fix .",
-    "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "test": "npm run lint && set NODE_ENV=test&& mocha -u tdd --reporter spec --exit"
   },
   "license": "ISC",
   "dependencies": {
@@ -22,6 +22,7 @@
     "materialize-css": "^1.0.0-rc.2",
     "morgan": "^1.9.1",
     "mysql2": "^1.5.3",
+    "nightmare": "^3.0.1",
     "sequelize": "^4.38.0",
     "sequelize-cli": "^5.4.0",
     "twilio": "^3.25.0"
