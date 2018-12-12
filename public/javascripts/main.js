@@ -98,20 +98,29 @@ $(document).ready(function () {
             }
         );
     }
-    //console.log("here");
+
+    //codemirror for the search/browse results
     let codelist = [];
     $(".search-code").each(function (index) {
-        //console.log("is this shit fucking working?????????????");
         console.log($(this).text());
         let textArea = this;
-        let text = textArea.innerText;
+        let text = $(this).text();
+        let lang = $(".info-div").find(`[data-index='${index + 1}']`).attr("data-lang");
+        if (lang === "html") {
+            lang = "htmlmixed";
+        }
+        if (lang === "json") {
+            lang = "javascript";
+        }
+        console.log(index + 1);
+        console.log(lang);
         codelist.push(CodeMirror(
             function(elt) {
                 textArea.parentNode.replaceChild(elt, textArea);
             },
             {
                 value: text,
-                mode: "javascript",
+                mode: lang,
                 theme: "3024-night"
             }
         ))        

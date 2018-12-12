@@ -1,11 +1,11 @@
 <div class="container mt-5 bg-primary">
   <div class="row">
     <div class="col-sm-6 px-0 col-md-5 col-lg-5">
-      <div class="card">
+      <div class="card info-div">
         <div class="card-body line-hgt">
           <p class="card-text">Created by: {{users.username}}</p>
           <p class="card-text">Created At : {{createdAt}}</p>
-          <p class="card-text">Language: {{languages}}</p>
+          <p class="card-text lang-tag" data-index={{id}} data-lang={{languages}}>Language: {{languages}}</p>
           <p class="card-text">Code description: {{codeDescription}}</p>
           <p class="card-text">Price: {{price}}</p>
           <p class="card-text">Keywords: {{keywords}}</p>
