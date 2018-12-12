@@ -38,13 +38,13 @@ db.sequelize.sync({}).then(function() {
         console.log(`Server listening on http://localhost:${PORT}`);
     });
 });
-// this function removes the Get favicon
-function ignoreFavicon(req, res, next) {
-    if (req.originalUrl === "/favicon.ico") {
-        res.status(204).json({ nope: true });
-    } else {
-        next();
-    }
-}
+// // this function removes the Get favicon
+// function ignoreFavicon(req, res, next) {
+//     if (req.originalUrl === "/favicon.ico") {
+//         res.status(204).json({ nope: true });
+//     } else {
+//         next();
+//     }
+// }
 
 module.exports = app;
