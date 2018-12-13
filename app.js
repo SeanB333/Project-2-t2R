@@ -16,6 +16,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 
+//express-handlebars path settings
 const exphbs = require("express-handlebars");
 app.engine(
     ".hbs",
@@ -26,7 +27,6 @@ app.engine(
         partialsDir: "views/partials"
     })
 );
-
 // error handler
 app.use(function(err, req, res) {
     // set locals, only providing error in development
