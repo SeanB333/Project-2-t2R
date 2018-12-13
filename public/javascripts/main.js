@@ -55,10 +55,8 @@ $(document).ready(function() {
             });
 
             $("#username").val("");
-            $("#email").val("");
             $("#codeDescription").val("");
             $("#keywords").val("");
-            $("#price").val("");
             $("#codesnip").val("");
         }
     });
@@ -83,10 +81,6 @@ $(document).ready(function() {
         let myTextArea = document.getElementById("codesnip");
 
         let code = myTextArea.innerText;
-
-        console.log(myTextArea);
-        console.log(code);
-
         myCodeMirror = CodeMirror(
             function(elt) {
                 myTextArea.parentNode.replaceChild(elt, myTextArea);

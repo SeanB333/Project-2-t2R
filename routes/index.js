@@ -58,8 +58,6 @@ router.get("/api/code/", function(req, res) {
     db.Codes.findAll({ include: [{ model: db.Users, as: "users" }] }).then(
         function(results) {
             let data = { title: "xtract", data: results };
-            //console.log("this is data::: ", data.data[0].dataValues);
-            //data.data[i].dataValues.createdAt
             data.data.forEach(function(obj) {
                 let formattedDate = changeDate(obj.dataValues.createdAt);
                 obj.dataValues.createdAt = formattedDate;
