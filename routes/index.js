@@ -4,7 +4,9 @@ const db = require("../models");
 
 /* GET home page. */
 router.get("/", function(req, res) {
-    res.render("index");
+    res.render("index", {
+        title: "xtract"
+    });
 });
 
 /*obtain email from user and find or create user
@@ -43,46 +45,71 @@ router.post("/api/code", function(req, res) {
                 );
                 if (createCodeInfo) {
                     res.json(createCodeInfo);
-                } else {
-                    res.sendStatus(404);
                 }
             } catch (error) {
-                res.sendStatus(500);
+                res.sendStatus(500).send(
+                    "Please try again later. The server is under maintenance."
+                );
             }
         });
 });
 
-//send client information per keyword obtained from url parameter
+// browse all codesnips
+router.get("/api/code/", async function(req, res) {
+    try {
+        let results = await db.Codes.findAll({
+            include: [{ model: db.Users, as: "users" }],
+            order: [["createdAt", "desc"]]
+        });
+
+        if (results) {
+            let data = { title: "xtract", data: results };
+            data.data.forEach(function(obj) {
+                let formattedDate = changeDate(obj.dataValues.createdAt);
+                obj.dataValues.createdAt = formattedDate;
+            });
+            res.render("codearea", data);
+        } else {
+            res.sendStatus(404).send(
+                "Please try searching for a different word."
+            );
+        }
+    } catch (error) {
+        res.sendStatus(500).send(
+            "Please try again later. The server is under maintenance."
+        );
+    }
+});
+
+//look for keywords to be displayed in front end
 router.get("/api/keywords/:keywords", async function(req, res) {
     try {
-        const codeUserData = await db.Codes.findAll({
+        let codeUserData = await db.Codes.findAll({
             where: { keywords: { $like: `%${req.params.keywords}%` } },
             include: [{ model: db.Users, as: "users" }]
         });
         if (codeUserData) {
-            res.render("codearea", { data: codeUserData });
+            let data = { title: "xtract", data: codeUserData };
+            data.data.forEach(function(obj) {
+                let formattedDate = changeDate(obj.dataValues.createdAt);
+                obj.dataValues.createdAt = formattedDate;
+            });
+            res.render("codearea", data);
         } else {
-            res.sendStatus(404);
+            res.sendStatus(404).send(
+                "Please try searching for a different word."
+            );
         }
     } catch (error) {
-        res.sendStatus(500);
+        res.sendStatus(500).send(
+            "Please try again later. The server is under maintenance."
+        );
     }
 });
 
-//find for all codesnips and sort by created date
-router.get("/api/code/", async function(req, res) {
-    try {
-        const codeUserData = await db.Codes.findAll({
-            include: [{ model: db.Users, as: "users" }],
-            order: [["createdAt", "desc"]]
-        });
-        if (codeUserData) {
-            res.render("codearea", { data: codeUserData });
-        } else {
-            res.sendStatus(404);
-        }
-    } catch (error) {
-        res.sendStatus(500);
-    }
-});
+function changeDate(date) {
+    let newDate = new Date(date);
+    return newDate.toLocaleString("en-US");
+}
+
 module.exports = router;

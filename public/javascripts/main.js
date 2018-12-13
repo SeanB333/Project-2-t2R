@@ -153,9 +153,7 @@ $(document).ready(function() {
             });
             $("#selectedKeyword").val();
             setTimeout(function() {
-                location.assign(
-                    `https://medsperhour-develop.herokuapp.com/${keywords}`
-                );
+                location.assign(`/api/keywords/${keywords}`);
                 $("#rotate-btn").html("");
             }, 3000);
         }
