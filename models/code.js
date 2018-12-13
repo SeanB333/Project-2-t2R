@@ -26,15 +26,10 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             defaultValue: "NA"
         },
-        price: {
-            type: DataTypes.DECIMAL(4, 2).ZEROFILL.UNSIGNED,
-            isDecimal: true,
-            validate: {
-                min: {
-                    args: [0],
-                    msg: { error: { price: "price" }, code: 400 }
-                }
-            }
+        difficulty: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "NA"
         }
     });
     Codes.associate = function(models) {
