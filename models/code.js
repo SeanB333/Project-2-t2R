@@ -8,12 +8,18 @@ module.exports = function(sequelize, DataTypes) {
         codeDescription: {
             type: DataTypes.TEXT,
             allowNull: false,
-            defaultValue: "NA"
+            defaultValue: "NA",
+            validate: {
+                len: [1, 20]
+            }
         },
         keywords: {
             type: DataTypes.TEXT,
             allowNull: false,
-            defaultValue: "NA"
+            defaultValue: "NA",
+            validate: {
+                len: [1, 20]
+            }
         },
         languages: {
             type: DataTypes.STRING,
@@ -21,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: "NA"
         },
         price: {
-            type: DataTypes.DECIMAL(6, 2).ZEROFILL.UNSIGNED,
+            type: DataTypes.DECIMAL(4, 2).ZEROFILL.UNSIGNED,
             isDecimal: true,
             validate: {
                 min: {

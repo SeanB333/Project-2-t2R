@@ -1,7 +1,7 @@
 {{!-- button area --}}
 
 <body>
-    <div class="row m-5 fade-btn">
+    <div class="row m-5">
         {{!-- search bar and button --}}
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="selectedKeyword">
@@ -40,32 +40,32 @@
                         <div class="form-group">
                             <label for="username" class="col-form-label">User name</label>
                             <input type="text" class="form-control" id="username" placeholder="Enter user name here"
-                                name="fname" required>
+                                name="fname" max="20">
                         </div>
                         <div class="form-group">
                             <label for="codeDescription" class="col-form-label">Describe your code</label>
                             <input type="text" class="form-control" id="codeDescription" placeholder="Enter description here"
-                                name="fname" required>
+                                name="fname" max="20">
                         </div>
                         <div class="form-group">
                             <label for="language" class="col-form-label">Choose your language</label>
                             <select id="language" class="custom-select custom-select-md mb-3 form-control">
+                                <option value="javascript">Javascript</option>
                                 <option value="html">Html</option>
                                 <option value="css">CSS</option>
-                                <option value="javascript">Javascript</option>
                                 <option value="json">JSON</option>
                                 <option value="sql">SQL</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="keywords" class="col-form-label">Enter keywords about your code</label>
-                            <input type="text" class="form-control" id="keywords" placeholder="Keywords" name="fname"
-                                required>
+                            <label for="keywords" class="col-form-label">Enter #keywords about your code</label>
+                            <input type="text" class="form-control" id="keywords" placeholder="ex. #front-end #validate #form" name="fname"
+                                max="20">
                         </div>
                         <div class="form-group">
                             <label for="price" class="col-form-label">Price</label>
-                            <input type="text" class="form-control" id="price" placeholder="$0.00" name="fname"
-                                required>
+                            <input type="text" class="form-control" id="price" placeholder="ex. 3000 = $3000.00" name="fname"
+                                max="4">
                         </div>
                         <div class="form-group outline">
                             <label for="codesnip" class="col-form-label"> Copy and paste your code here</label>
