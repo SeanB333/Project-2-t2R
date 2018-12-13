@@ -8,12 +8,18 @@ module.exports = function(sequelize, DataTypes) {
         codeDescription: {
             type: DataTypes.TEXT,
             allowNull: false,
-            defaultValue: "NA"
+            defaultValue: "NA",
+            validate: {
+                len: [1, 20]
+            }
         },
         keywords: {
             type: DataTypes.TEXT,
             allowNull: false,
-            defaultValue: "NA"
+            defaultValue: "NA",
+            validate: {
+                len: [1, 20]
+            }
         },
         languages: {
             type: DataTypes.STRING,

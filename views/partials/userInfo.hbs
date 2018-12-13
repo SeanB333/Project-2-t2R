@@ -4,19 +4,19 @@
     <div class="col-sm-6 px-0 col-md-5 col-lg-5">
       <div class="card info-div">
         <div class="card-body line-hgt card-color">
-          <p class="card-text"><a class="card-words">Created by: </a>{{users.username}}</p>
+          <p class="card-text"><a class="card-words"><h4>Created by: </a>{{users.username}}</h4></p>
           <p class="card-text"><a class="card-words">Created At : </a>{{createdAt}}</p>
           <p class="card-text lang-tag" data-index={{id}} data-lang={{languages}}><a class="card-words">Language: </a>{{languages}}</p>
           <p class="card-text"><a class="card-words">Code description: </a>{{codeDescription}}</p>
           <p class="card-text"><a class="card-words">Price: </a>{{price}}</p>
-          <p class="card-text"><a class="card-words">Keywords: </a>{{keywords}}</p>
+          <p class="card-text"><a class="card-words">Keywords: </a><a class="key-block">{{keywords}}</a></p>
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-md-7 col-lg-7 px-0">
       <div class="card">
         <div class="card-body card-color">
-          <h5 class="card-title">Code</h5>
+          <h5 class="card-title">Codesnips</h5>
           <textarea class="card-text search-code">{{codesnip}}</textarea>
         </div>
       </div>
