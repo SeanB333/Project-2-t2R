@@ -16,7 +16,7 @@ $(document).ready(function() {
             keywords: $("#keywords")
                 .val()
                 .trim(),
-            price: $("#price")
+            difficulty: $("#difficulty")
                 .val()
                 .trim(),
             codesnip: myCodeMirror.getValue()
@@ -26,8 +26,7 @@ $(document).ready(function() {
         if (
             data.username === "" ||
             data.codeDescription === "" ||
-            data.keywords === "" ||
-            data.price === ""
+            data.keywords === ""
         ) {
             $("#error").html("You are required to enter your code info");
             console.log("err");
