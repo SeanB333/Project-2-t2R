@@ -153,9 +153,7 @@ $(document).ready(function() {
             });
             $("#selectedKeyword").val();
             setTimeout(function() {
-                location.assign(
-                    `http://localhost:8080/api/keywords/${keywords}`
-                );
+                location.assign(`/api/keywords/${keywords}`);
                 $("#rotate-btn").html("");
             }, 3000);
         }

@@ -10,8 +10,6 @@ describe("codes model", () => {
                 await db.Codes.create({ language: "CSS" });
                 const users = await db.Users.create({ username: "aime" });
                 expect(users[0].Users.dataValues.username).to.equal("aime");
-                //console.log(Object.keys(codes));
-                //await db.Codes.getUsers(user);
                 done();
             })
 
