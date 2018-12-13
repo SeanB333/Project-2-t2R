@@ -4,7 +4,9 @@ const db = require("../models");
 
 /* GET home page. */
 router.get("/", function(req, res) {
-    res.render("index");
+    res.render("index", {
+        title: "xtract"
+    });
 });
 
 /*obtain info from user and create a new record in table*/
@@ -55,8 +57,13 @@ router.post("/api/code", function(req, res) {
 router.get("/api/code/", function(req, res) {
     db.Codes.findAll({ include: [{ model: db.Users, as: "users" }] }).then(
         function(results) {
-            let data = { data: results };
-            console.log(results);
+            let data = { title: "xtract", data: results };
+            //console.log("this is data::: ", data.data[0].dataValues);
+            //data.data[i].dataValues.createdAt
+            data.data.forEach(function(obj) {
+                let formattedDate = changeDate(obj.dataValues.createdAt);
+                obj.dataValues.createdAt = formattedDate;
+            });
             res.render("codearea", data);
         }
     );
@@ -65,12 +72,17 @@ router.get("/api/code/", function(req, res) {
 //look for keywords to be displayed in front end
 router.get("/api/keywords/:keywords", async function(req, res) {
     try {
-        const codeUserData = await db.Codes.findAll({
+        let codeUserData = await db.Codes.findAll({
             where: { keywords: { $like: `%${req.params.keywords}%` } },
             include: [{ model: db.Users, as: "users" }]
         });
         if (codeUserData) {
-            res.render("codearea", { data: codeUserData });
+            let data = { title: "xtract", data: codeUserData };
+            data.data.forEach(function(obj) {
+                let formattedDate = changeDate(obj.dataValues.createdAt);
+                obj.dataValues.createdAt = formattedDate;
+            });
+            res.render("codearea", data);
         } else {
             res.sendStatus(404);
         }
@@ -78,5 +90,10 @@ router.get("/api/keywords/:keywords", async function(req, res) {
         res.sendStatus(500);
     }
 });
+
+function changeDate(date) {
+    let newDate = new Date(date);
+    return newDate.toLocaleString("en-US");
+}
 
 module.exports = router;
