@@ -27,7 +27,6 @@ app.engine(
         partialsDir: "views/partials"
     })
 );
-
 // error handler
 app.use(function(err, req, res) {
     // set locals, only providing error in development
