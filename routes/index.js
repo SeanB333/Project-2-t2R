@@ -7,7 +7,8 @@ router.get("/", function(req, res) {
     res.render("index");
 });
 
-/*obtain info from user and create a new record in table*/
+/*obtain email from user and find or create user
+create code information record from user */
 router.post("/api/code", function(req, res) {
     db.Users.findOrCreate({ where: { username: req.body.username } })
         .spread(async (user, created) => {
@@ -51,16 +52,7 @@ router.post("/api/code", function(req, res) {
         });
 });
 
-// browse all codesnips
-// router.get("/api/code/", function(req, res) {
-//     db.Codes.findAll({}).then(function(results) {
-//         let data = { data: results };
-//         console.log(results);
-//         res.render("codearea", data);
-//     });
-// });
-
-//look for keywords to be displayed in front end
+//send client information per keyword obtained from url parameter
 router.get("/api/keywords/:keywords", async function(req, res) {
     try {
         const codeUserData = await db.Codes.findAll({
@@ -77,7 +69,7 @@ router.get("/api/keywords/:keywords", async function(req, res) {
     }
 });
 
-// browse all codesnips
+//find for all codesnips and sort by created date
 router.get("/api/code/", async function(req, res) {
     try {
         const codeUserData = await db.Codes.findAll({
