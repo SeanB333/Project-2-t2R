@@ -1,14 +1,17 @@
 <title>{{title}}</title>
-{{!-- browse button --}}
-    <div class="container mt-5">
+<div class="container">
+    <div class="row mt-5">
         <button id="backBtn" class="btn btn-outline-primary my-2 my-sm-0">Back</button>
+        <form class="form-inline ml-5">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="selectedKeyword">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="searchSubmit">Search</button>
+        </form>
+        <span id="rotate-btn"></span>
     </div>
+</div>
 
-
+{{!-- handlebars code area --}}
 <div class="row">
-  
-        
-        {{#each data}} {{> userInfo createdAt=createdAt users=users price=price languages=languages id=id codeDescription=codeDescription keywords=keywords codesnip=codesnip}}{{/each}}
-        
-
+    {{#each data}} {{> userInfo createdAt=createdAt users=users price=price languages=languages id=id
+    codeDescription=codeDescription keywords=keywords codesnip=codesnip}}{{/each}}
 </div>
