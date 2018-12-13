@@ -79,12 +79,4 @@ router.get("/api/keywords/:keywords", async function(req, res) {
     }
 });
 
-// browse all codesnips
-// router.get("/api/code/", function(req, res) {
-//     db.Codes.findAll({}).then(function(results) {
-//         let data = { data: results };
-//         console.log(results);
-//         res.render("codearea", data);
-//     });
-// });
 module.exports = router;
