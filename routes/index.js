@@ -61,7 +61,7 @@ router.get("/api/code/", function(req, res) {
             //console.log("this is data::: ", data.data[0].dataValues);
             //data.data[i].dataValues.createdAt
             data.data.forEach(function(obj) {
-                let formattedDate = change_date(obj.dataValues.createdAt);
+                let formattedDate = changeDate(obj.dataValues.createdAt);
                 obj.dataValues.createdAt = formattedDate;
             });
             res.render("codearea", data);
@@ -79,7 +79,7 @@ router.get("/api/keywords/:keywords", async function(req, res) {
         if (codeUserData) {
             let data = { title: "xtract", data: codeUserData };
             data.data.forEach(function(obj) {
-                let formattedDate = change_date(obj.dataValues.createdAt);
+                let formattedDate = changeDate(obj.dataValues.createdAt);
                 obj.dataValues.createdAt = formattedDate;
             });
             res.render("codearea", data);
@@ -91,7 +91,7 @@ router.get("/api/keywords/:keywords", async function(req, res) {
     }
 });
 
-function change_date(date) {
+function changeDate(date) {
     let newDate = new Date(date);
     return newDate.toLocaleString("en-US");
 }
