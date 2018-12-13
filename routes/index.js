@@ -34,7 +34,7 @@ router.post("/api/code", function(req, res) {
                         keywords: req.body.keywords,
                         codeDescription: req.body.codeDescription,
                         languages: req.body.languages,
-                        price: req.body.price,
+                        difficulty: req.body.difficulty,
                         codesnip: req.body.codesnip,
                         usersId: objUser.id
                     },
