@@ -9,8 +9,7 @@ router.get("/", function(req, res) {
     });
 });
 
-/*obtain email from user and find or create user
-create code information record from user */
+/*obtain info from user and create a new record in table*/
 router.post("/api/code", function(req, res) {
     db.Users.findOrCreate({ where: { username: req.body.username } })
         .spread(async (user, created) => {
@@ -34,7 +33,7 @@ router.post("/api/code", function(req, res) {
                         keywords: req.body.keywords,
                         codeDescription: req.body.codeDescription,
                         languages: req.body.languages,
-                        difficulty: req.body.difficulty,
+                        price: req.body.price,
                         codesnip: req.body.codesnip,
                         usersId: objUser.id
                     },
@@ -45,40 +44,29 @@ router.post("/api/code", function(req, res) {
                 );
                 if (createCodeInfo) {
                     res.json(createCodeInfo);
+                } else {
+                    res.sendStatus(404);
                 }
             } catch (error) {
-                res.sendStatus(500).send(
-                    "Please try again later. The server is under maintenance."
-                );
+                res.sendStatus(500);
             }
         });
 });
 
 // browse all codesnips
-router.get("/api/code/", async function(req, res) {
-    try {
-        let results = await db.Codes.findAll({
-            include: [{ model: db.Users, as: "users" }],
-            order: [["createdAt", "desc"]]
-        });
-
-        if (results) {
+router.get("/api/code/", function(req, res) {
+    db.Codes.findAll({ include: [{ model: db.Users, as: "users" }] }).then(
+        function(results) {
             let data = { title: "xtract", data: results };
+            //console.log("this is data::: ", data.data[0].dataValues);
+            //data.data[i].dataValues.createdAt
             data.data.forEach(function(obj) {
                 let formattedDate = changeDate(obj.dataValues.createdAt);
                 obj.dataValues.createdAt = formattedDate;
             });
             res.render("codearea", data);
-        } else {
-            res.sendStatus(404).send(
-                "Please try searching for a different word."
-            );
         }
-    } catch (error) {
-        res.sendStatus(500).send(
-            "Please try again later. The server is under maintenance."
-        );
-    }
+    );
 });
 
 //look for keywords to be displayed in front end
@@ -96,14 +84,10 @@ router.get("/api/keywords/:keywords", async function(req, res) {
             });
             res.render("codearea", data);
         } else {
-            res.sendStatus(404).send(
-                "Please try searching for a different word."
-            );
+            res.sendStatus(404);
         }
     } catch (error) {
-        res.sendStatus(500).send(
-            "Please try again later. The server is under maintenance."
-        );
+        res.sendStatus(500);
     }
 });
 
