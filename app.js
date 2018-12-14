@@ -3,8 +3,9 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const indexRouter = require("./routes/index");
-
+let db = require("./models");
 const app = express();
+const port = require("./bin/www");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -38,10 +39,9 @@ app.use(function(err, req, res) {
     res.render("error");
 });
 
-app.use(routes);
 db.sequelize.sync({ force: true }).then(function() {
-    app.listen(PORT, function() {
-        console.log("listening on port %s", PORT);
+    app.listen(port, function() {
+        console.log("listening on port %s", port);
     });
 });
 
