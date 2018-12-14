@@ -7,7 +7,7 @@ body {
 /* modal css */
 .modal-content {
   background-color: black;
-  background-image: url(../images/code2cover.png);
+  background-image: url(../images/xtcover.png);
   color: rgb(255, 255, 255);
   border-style: solid;
   border-color: blue;
@@ -148,7 +148,7 @@ body {
 .card-color {
   color: white;
   background-color: black;
-  background-image: url(../images/code2cover.png);
+  background-image: url(../images/xtcover.png);
 }
 
 .card-words {

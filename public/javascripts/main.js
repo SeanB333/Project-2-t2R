@@ -100,7 +100,7 @@ $(document).ready(function() {
         let textArea = this;
         let text = $(this).text();
         let lang = $(".info-div")
-            .find(`[data-index='${index + 1}']`)
+            .find(`[data-index='${index}']`)
             .attr("data-lang");
         if (lang === "html") {
             lang = "htmlmixed";
